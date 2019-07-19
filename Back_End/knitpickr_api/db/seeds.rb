@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Material.create(name: yarn, quantity: 1, color: 'red', brand:'Red Heart Yarn', favorited: false)
-Material.create(name: yarn, quantity: 4, color: 'mint', brand:'Lily Sugar n Cream', favorited: true)
+# Material.create(name: yarn, quantity: 1, color: 'red', brand:'Red Heart Yarn', favorited: false)
+# Material.create(name: yarn, quantity: 4, color: 'mint', brand:'Lily Sugar n Cream', favorited: true)
 
-Project.create(name: 'Christmas Stocking', favorited: false)
-Project.create(name: 'Spring Wreath', favorited: true)
+# Project.create(name: 'Christmas Stocking', favorited: false)
+# Project.create(name: 'Spring Wreath', favorited: true)
