@@ -1,25 +1,36 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import {fetchProjects} from '../actions/fetchProjects'
-import Projects from '../components/Projects'
 
-class ProjectsContainer extends Component {
+// import { connect } from 'react-redux'
+// import {fetchProjects} from '../actions/fetchProjects'
+// import Projects from '../components/Projects'
+
+export default class ProjectsContainer extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            projects: []
+        }
+    }
 
     componentDidMount() {
-        this.props.fetchProjects()
+        fetch("http://localhost:3001/projects")
+        .then(res => res.json())
+        .then(projects => this.setState({projects}))
      }
   
-     renderProjects = () => {
-        // if (!!this.props.projects) {
-        //    return <Projects projects={this.props.projects} />
-        // } else {return null}
-     }
+    //  renderProjects = () => {
+    //     // if (!!this.props.projects) {
+    //     //    return <Projects projects={this.props.projects} />
+    //     // } else {return null}
+    //  }
   
      render() {
+        // debugger
         return (
-           <div>
-              {this.renderProjects()}
-           </div>
+           <ul>
+              {this.state.projects.map(project => <li> {project.name} </li>)}
+           </ul>
         )
      }
 
@@ -28,8 +39,8 @@ class ProjectsContainer extends Component {
 
 }
 
-const mapStateToProps = state => {
-    return {projects: state.projects}
- }
+// const mapStateToProps = state => {
+//     return {projects: state.projects}
+//  }
 
-export default connect(mapStateToProps, {fetchProjects})(ProjectsContainer)
+// export default connect(mapStateToProps, {fetchProjects})(ProjectsContainer)
