@@ -6,6 +6,7 @@ class CreateMaterials < ActiveRecord::Migration[5.2]
       t.string :color
       t.string :brand
       t.boolean :favorited
+      t.integer :project_id
 
       t.timestamps
     end

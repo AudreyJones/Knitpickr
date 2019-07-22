@@ -8,8 +8,11 @@
 
 
 
-Material.create(name: yarn, quantity: 1, color: 'red', brand:'Red Heart Yarn', favorited: false)
-Material.create(name: yarn, quantity: 4, color: 'mint', brand:'Lily Sugar n Cream', favorited: true)
+material1 = Material.create(name: 'yarn', quantity: 1, color: 'red', brand:'Red Heart Yarn', favorited: false)
+material2 = Material.create(name: 'yarn', quantity: 4, color: 'mint', brand:'Lily Sugar n Cream', favorited: true)
 
-Project.create(name: 'Christmas Stocking', favorited: false)
-Project.create(name: 'Spring Wreath', favorited: true)
+project1 = Project.create(name: 'Christmas Stocking', favorited: false)
+project2 = Project.create(name: 'Spring Wreath', favorited: true)
+
+project1.materials << material1
+project2.materials << material2

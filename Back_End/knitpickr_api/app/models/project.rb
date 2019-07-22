@@ -1,3 +1,5 @@
 class Project < ApplicationRecord
-    has_many: materials
+    serialize :materials,Array
+    has_many :materials
+    
 end

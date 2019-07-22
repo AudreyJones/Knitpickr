@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 2019_07_19_133811) do
     t.string "color"
     t.string "brand"
     t.boolean "favorited"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
+    t.text "materials"
     t.boolean "favorited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

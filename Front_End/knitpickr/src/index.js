@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.css';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
-import manageProjects from './reducers/manageProjects';
+import reducers from './reducers/reducers';
 
-const store = createStore(manageProjects, applyMiddleware(thunk));
+// const store = createStore(reducers, applyMiddleware(thunk));
+
+const Home = () => {
+    return (
+      <div>
+        <h1>Home!</h1>
+      </div>
+    );
+  };
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider >
         <App />
     </Provider>, 
 document.getElementById('root'));
