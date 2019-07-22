@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-    serialize :materials,Array
+    serialize :materials, Array
     has_many :materials
     
 end
