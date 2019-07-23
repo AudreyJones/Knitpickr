@@ -1,23 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-// import { connect } from 'react-redux'
-// import {fetchProjects} from '../actions/fetchProjects'
-// import Projects from '../components/Projects'
+// import { connect } from 'react-redux';
+// import {fetchProjects} from '../actions/fetchProjects';
+// import Projects from '../components/Projects';
 
 export default class ProjectsContainer extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            projects: []
-        }
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:3001/projects")
-        .then(res => res.json())
-        .then(projects => this.setState({projects}))
-     }
+    
   
     //  renderProjects = () => {
     //     // if (!!this.props.projects) {
@@ -29,7 +18,7 @@ export default class ProjectsContainer extends Component {
         // debugger
         return (
            <ul>
-              {this.state.projects.map(project => <li> {project.name} </li>)}
+              {this.props.projects.map(project => <li> {project.name} </li>)}
            </ul>
         )
      }
