@@ -1,7 +1,7 @@
 export function fetchProjects() {
    return dispatch => {
       dispatch({ type: "LOADING_PROJECTS" })
-      const url = "http://localhost:3000/projects"
+      const url = "http://localhost:3001/projects"
       debugger
       return fetch(url)
          .then(resp => {

@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import ProjectsContainer from './containers/ProjectsContainer';
 import ProjectShow from './components/ProjectShow';
 // import logo from './logo.svg';
-import './App.css';
 // import Projects from './components/Projects';
 
 export default class App extends Component {
@@ -14,24 +13,29 @@ export default class App extends Component {
     // form for sign up, lives on project show
 
     state = {
-      projects: []
+      projects: [],
     }
   
     
-    componentDidMount() {
+    componentDidMount(){
     fetch("http://localhost:3001/projects")
         .then(res => res.json())
         .then(projects => this.setState({projects}))
   }
   render() {
+    console.log("Loaded App")
+    console.log(this.state)
     return (
       <Router>
       <div>
         <Link to="/"><button>Home</button></Link>
         <Link to="/new"><button>New Project</button></Link>
+        <Link to="/materials"><button>Materials Index</button></Link>
+        <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
         <Switch>
-          <Route path="/" render= { () => (<ProjectsContainer projects = {this.state.projects}/>)}/>
-          <Route path="/projects/:id" render={({ match }) => (<ProjectShow {...this.state.projects.find(proj => proj.id === parseInt(match.params.id))} />)} />
+
+          <Route path="/projects/:id" render = {({ match }) => (<ProjectShow {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
+          <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />
           {/* Match gives us access to the id, and  */}
         </Switch>
       
