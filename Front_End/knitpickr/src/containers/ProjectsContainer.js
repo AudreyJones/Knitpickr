@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 // import { connect } from 'react-redux';
 // import {fetchProjects} from '../actions/fetchProjects';
@@ -6,8 +8,6 @@ import React, { Component } from 'react';
 
 export default class ProjectsContainer extends Component {
 
-    
-  
     //  renderProjects = () => {
     //     // if (!!this.props.projects) {
     //     //    return <Projects projects={this.props.projects} />
@@ -18,7 +18,8 @@ export default class ProjectsContainer extends Component {
         // debugger
         return (
            <ul>
-              {this.props.projects.map(project => <li> {project.name} </li>)}
+              {this.props.projects.map(project => <li key={project.id}> <Link to={`projects/${project.id}`}>{project.name}</Link> </li>)}
+              {/* REALLY NICE example of nested syntax here with the Link to path! */}
            </ul>
         )
      }

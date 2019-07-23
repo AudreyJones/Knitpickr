@@ -31,7 +31,7 @@ export default class App extends Component {
         <Link to="/new"><button>New Project</button></Link>
         <Switch>
           <Route path="/" render= { () => (<ProjectsContainer projects = {this.state.projects}/>)}/>
-          <Route path="/project/id" render={({match}) => (<ProjectShow {...this.state.projects.find(proj => proj.id === parseInt(match.params.id))} />)} />
+          <Route path="/projects/:id" render={({ match }) => (<ProjectShow {...this.state.projects.find(proj => proj.id === parseInt(match.params.id))} />)} />
           {/* Match gives us access to the id, and  */}
         </Switch>
       
