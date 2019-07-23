@@ -27,6 +27,7 @@ export default class App extends Component {
     console.log(this.state)
     return (
       <Router>
+        {this.state.projects.length > 0 ?
       <div>
         <Link to="/"><button>Home</button></Link>
         <Link to="/new"><button>New Project</button></Link>
@@ -40,7 +41,8 @@ export default class App extends Component {
         </Switch>
       
       
-      </div>
+      </div> : <h1>Projects are Loading...</h1>
+        }
       </Router>
     )
   }
