@@ -17,7 +17,17 @@ export default class App extends Component {
     }
   
     addMaterial = (name, brand, color, quantity, project_id) => {
+      const data = {name: brand: color: quantity: project_id:}
       console.log(name.value, brand.value, color.value, quantity.value, project_id)
+      fetch("http://localhost:3001/materials", {
+        method: POST,
+        headers: {
+          'Content-Type' : 'application-json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(resp => resp.json())
+      .then(console.log())
     }
     
     componentDidMount(){

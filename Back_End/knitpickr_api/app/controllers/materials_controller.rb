@@ -1,5 +1,5 @@
 class MaterialsController < ApplicationController
-
+    # Take in new materials data from front-end!
     def index
         @materials = Material.all
         render json: @materials
