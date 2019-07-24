@@ -16,8 +16,8 @@ export default class App extends Component {
       projects: [],
     }
   
-    addMaterial = (name, project_id) => {
-      console.log(name, project_id)
+    addMaterial = (name, brand, color, quantity, project_id) => {
+      console.log(name.value, brand.value, color.value, quantity.value, project_id)
     }
     
     componentDidMount(){
