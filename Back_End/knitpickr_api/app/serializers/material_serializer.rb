@@ -1,5 +1,6 @@
 class MaterialSerializer < ActiveModel::Serializer
   attributes :id, :name, :quantity, :color, :brand, :favorited, :project_id
-  belongs_to :project
+  has_many :projects, through: :user
+  belongs_to :user
   
 end

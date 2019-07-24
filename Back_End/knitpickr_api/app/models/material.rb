@@ -1,3 +1,4 @@
 class Material < ApplicationRecord
-    belongs_to :project
+    has_many :projects, through: :user
+    belongs_to :user
 end
