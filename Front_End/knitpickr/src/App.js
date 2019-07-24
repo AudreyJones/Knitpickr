@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import ProjectsContainer from './containers/ProjectsContainer';
 import ProjectShow from './components/ProjectShow';
-// import logo from './logo.svg';
-// import Projects from './components/Projects';
+
 
 export default class App extends Component {
 
     // Index Filter by project name or material name
-    // Need a projects (Index) page
-    // For each project, a show page which lists materials.
-    // form for sign up, lives on project show
+    // COMPLETED: Need a projects (Index) page
+    // COMPLETED: For each project, a show page which lists materials.
+    // COMPLETED: form to create material, lives on project show page
+    // AddMaterial form persists new material in backend
 
     state = {
       projects: [],
