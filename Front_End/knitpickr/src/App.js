@@ -16,6 +16,9 @@ export default class App extends Component {
       projects: [],
     }
   
+    addMaterial = (name, project_id) => {
+      console.log(name, project_id)
+    }
     
     componentDidMount(){
     fetch("http://localhost:3001/projects")
@@ -35,7 +38,7 @@ export default class App extends Component {
         <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
         <Switch>
 
-          <Route path="/projects/:id" render = {({ match }) => (<ProjectShow {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
+          <Route path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
           <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />
           {/* Match gives us access to the id, and  */}
         </Switch>
