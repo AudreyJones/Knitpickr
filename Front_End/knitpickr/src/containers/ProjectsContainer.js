@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 
 export default class ProjectsContainer extends Component {
 
-    
-  
      render() {
         console.log("Loaded Projects Container")
-        console.log(this.state)
+      //   console.log("ProjectsContainer State" this.state)
         
         return (
            <ul>

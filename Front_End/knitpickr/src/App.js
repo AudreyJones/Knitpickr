@@ -17,10 +17,11 @@ export default class App extends Component {
     }
   
     addMaterial = (name, brand, color, quantity, project_id) => {
-      const data = {name: brand: color: quantity: project_id:}
-      console.log(name.value, brand.value, color.value, quantity.value, project_id)
+      console.log("sent added material to API")
+      const data = {name, brand, color, quantity, project_id}
+      // console.log(name.value, brand.value, color.value, quantity.value, project_id)
       fetch("http://localhost:3001/materials", {
-        method: POST,
+        method: 'POST',
         headers: {
           'Content-Type' : 'application-json',
         },

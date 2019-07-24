@@ -1,46 +1,69 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default function MaterialForm(props) {
+export default class MaterialForm extends Component {
 
-    const sendMaterial = (event) => {
-        event.preventDefault()
-        const newMaterial_name = document.getElementById("materialName")
-        const newMaterial_brand = document.getElementById("brandName")
-        const newMaterial_color = document.getElementById("materialColor")
-        const newMaterial_quantity = document.getElementById("materialQuantity")
-        props.addMaterial(newMaterial_name, newMaterial_brand, newMaterial_color, newMaterial_quantity, props.projectID)
-        newMaterial_name.value = ""
-        newMaterial_brand.value = ""
-        newMaterial_color.value = ""
-        newMaterial_quantity.value = ""
-        console.log(props)
-        // debugger
+    state = {
+        name:"yarn",
+        color:"",
+        brand:"",
+        quantity:""
     }
 
-    return(
-        <div>
-            <form onSubmit={sendMaterial}>
-                <label>Material Name/Type: 
-                <select id="materialName">
-                    <option value="yarn">yarn</option>
-                    <option value="hook">hook</option>
-                </select>
-                </label>
+    sendMaterial = (event) => {
+        // debugger
+        console.log(this.state)
+        event.preventDefault()
 
-                <label>Brand
-                <input type="text" id="brandName"/>
-                </label>
+        //send state back to API
+        //clear out form
+        this.setState({
+            name: "",
+            color:"",
+            brand:"",
+            quantity:""
+        })
+    }
 
-                <label>Color
-                <input type="text" id="materialColor"/>
-                </label>
+    handleChange= (event) => {
+        // event.preventDefault()
+        // console.log(event)
+        this.setState({[event.target.name]: event.target.value})
+    }
 
-                <label>Quantity
-                <input type="text" id="materialQuantity"/>
-                </label>
+    handleSelectChange = (event) => {
+        console.log("hitting handleselectChange")
+        console.log(event.target.value)
+        this.setState(
+            {name: event.target.value}
+        )
+    }
 
-                <input type="submit" value="Add Material"/>
-            </form>
-        </div>
-    )
+    render() {
+        return(
+            <div>
+                <form onSubmit={this.sendMaterial}>
+                    <label>Material Name/Type: 
+                    <select value={this.state.name} onChange={this.handleSelectChange} >
+                        <option value="yarn">yarn</option>
+                        <option value="hook">hook</option>
+                    </select>
+                    </label>
+
+                    <label>Brand
+                    <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>
+                    </label>
+
+                    <label>Color
+                    <input type="text" id="materialColor" name="color" onChange={this.handleChange}/>
+                    </label>
+
+                    <label>Quantity
+                    <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
+                    </label>
+
+                    <input type="submit" value="Add Material" onChange={this.handleChange}/>
+                </form>
+            </div>
+        )
+    }
 }
