@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_133811) do
+ActiveRecord::Schema.define(version: 2019_07_24_134715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_07_19_133811) do
     t.string "color"
     t.string "brand"
     t.boolean "favorited"
-    t.integer "project_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2019_07_19_133811) do
     t.string "name"
     t.text "materials"
     t.boolean "favorited"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.text "fav_projects"
+    t.text "fav_materials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

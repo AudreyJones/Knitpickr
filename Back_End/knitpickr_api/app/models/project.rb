@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
     serialize :materials, Array
-    has_many :materials
     belongs_to :user
+    has_many :materials, through: :user
     
 end
