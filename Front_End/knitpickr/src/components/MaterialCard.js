@@ -3,7 +3,11 @@ import React from 'react';
 export default function MaterialCard(props) {
     console.log({props})
     var tableStyle = {
-        // "border": "1px dashed green"
+        // "border": "1px solid",
+        margin: '40px',
+        padding: '10px' ,
+        width: '100%',
+        // text-align:'center'
      };
         return(
             <div>
