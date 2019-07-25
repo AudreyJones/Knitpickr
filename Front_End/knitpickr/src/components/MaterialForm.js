@@ -11,7 +11,7 @@ class MaterialForm extends Component {
         quantity:""
     }
 
-    sendMaterial = (event) => {
+    handleSubmit = (event) => {
         // debugger
         console.log(this.state)
         event.preventDefault()
@@ -27,8 +27,8 @@ class MaterialForm extends Component {
     }
 
     handleChange= (event) => {
-        // event.preventDefault()
-        // console.log(event)
+        event.preventDefault()
+        console.log(event)
         this.setState({[event.target.name]: event.target.value})
     }
 
@@ -43,7 +43,7 @@ class MaterialForm extends Component {
     render() {
         return(
             <div>
-                <form onSubmit={this.sendMaterial}>
+                <form onSubmit={this.handleSubmit}>
                     <label>Material Name/Type: 
                     <select value={this.state.name} onChange={this.handleSelectChange} >
                         <option value="yarn">yarn</option>

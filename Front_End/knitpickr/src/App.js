@@ -13,6 +13,7 @@ import MaterialShow from './components/MaterialShow';
 class App extends Component {
 
     // To Do: 
+    // -------------
     // AddMaterial form persists new material in backend
     // Stretch: Ravelry API hookup
     // Stretch: Index Filter/Search by project name or material name
@@ -52,7 +53,6 @@ class App extends Component {
         
 
         <Switch>  
-          {/* Refactor state into Container Components themselves and access via presentational components */}
           <Route exact path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
           <Route exact path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
           <Route exact path="/materials" component = {MaterialsContainer}/>

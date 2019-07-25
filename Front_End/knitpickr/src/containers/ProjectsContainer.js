@@ -6,22 +6,26 @@ import ProjectCard from '../components/ProjectCard';
 
 class ProjectsContainer extends Component {
 
+   componentDidMount() {
+      debugger
+      this.props.fetchProjects()
+   }
+
      render() {
         console.log("Loaded Projects Container")
         console.log(this)
 
         return (
-           <ul>
-              Project Cards should be here instead of Links!
-              {this.props.projects.map(project => <li key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </li>)}
-           </ul>
-            
+           <div>
+            <ProjectCard />
+            {/*  {this.props.projects.map(project => <li key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </li> )}*/}
+           </div>
         )
      }
 }
 
 const mapStateToProps = state => {
-   return {materials: state.materials,
+   return {
            projects: state.projects
    }
  }
