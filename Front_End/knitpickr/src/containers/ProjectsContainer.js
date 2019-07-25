@@ -12,6 +12,11 @@ class ProjectsContainer extends Component {
       this.props.fetchProjects()
    }
 
+   handleClick = (e) => {
+      e.preventDefault()
+      console.log("I've been clicked!")
+   }
+
      render() {
         console.log("Loaded Projects Container", this)
         
@@ -19,7 +24,7 @@ class ProjectsContainer extends Component {
            <div>
            <ProjectForm />
             <br />
-             {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`}/>)}
+             {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
             <ProjectCard />
             
            </div>

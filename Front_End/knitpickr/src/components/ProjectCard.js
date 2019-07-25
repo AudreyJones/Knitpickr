@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card } from 'semantic-ui-react'
 
 
-class ProjectCard extends Component {
+ const ProjectCard = (props) => {
 
-    handleClick = () => {
+    
 
-    }
-
-    render() {
-        console.log(this)
+   
+        console.log("ProjectCard:", props)
+        
+        // debugger
         return(
              <div>
                  <table>
-                    <Card onClick={this.handleClick}>
-                        <Card.Content header='Project Card' />
+                    <Card>
+                        <Card.Content header="Header" />
                         <Card.Content description="Dummy Description" />
                         <Card.Content extra>
                             
@@ -23,7 +23,7 @@ class ProjectCard extends Component {
                 </table>
              </div>
         )
-    }
+    
 }
 
 export default ProjectCard
