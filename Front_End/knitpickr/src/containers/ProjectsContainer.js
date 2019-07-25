@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import {fetchProjects} from '../actions/projects';
+import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
+import ProjectForm from '../components/ProjectForm'
 
 class ProjectsContainer extends Component {
 
@@ -12,27 +13,34 @@ class ProjectsContainer extends Component {
    }
 
      render() {
-        console.log("Loaded Projects Container")
-        console.log(this)
+        console.log("Loaded Projects Container", this)
+        
         return (
            <div>
+           <ProjectForm />
+              {/* For each project, render a ProjectCard */}
+            
+            {/*  {this.props.projects.map(project => <ProjectCard key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </Project> )}*/}
             <ProjectCard />
-            {/*  {this.props.projects.map(project => <li key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </li> )}*/}
+            
            </div>
         )
      }
 }
 
 const mapStateToProps = state => {
+   console.log("state: ", state)
+   debugger
    return {
-           projects: state.projects
+      // Naming the prop held by the ProjectsContainer and what we're filling it with.
+           projects: state.projects.projects
    }
  }
  
- const mapDispatchToProps = dispatch => ({
-      fetchProjects: projects => dispatch({type: 'FETCHING_PROJECTS', projects})
+//  const mapDispatchToProps = dispatch => ({
+//       fetchProjects: projects => dispatch({type: 'FETCHING_PROJECTS', projects})
   
- })
+//  })
 
 //  const mapDispatchToProps = dispatch => ({
 
@@ -41,5 +49,5 @@ const mapStateToProps = state => {
 //    deleteFromWish: vehicleId => dispatch({type: 'DELETE_FROM_WISH',vehicleId})
 //   })
 
- export default connect((mapStateToProps, mapDispatchToProps), { fetchProjects })(ProjectsContainer)
+ export default connect(mapStateToProps, { fetchProjects, addProjects })(ProjectsContainer)
 
