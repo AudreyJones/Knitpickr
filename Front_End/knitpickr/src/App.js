@@ -8,16 +8,12 @@ import ProjectShow from './components/ProjectShow';
 import MaterialShow from './components/MaterialShow';
 
 // importing our Action creators and { connect } to mapState and Dispatch to Props!
-import { connect } from 'react-redux'
-import { fetchMaterials } from './actions/materials'
-import { fetchProjects } from './actions/projects'
 
 
 class App extends Component {
+
     // To Do: 
     // AddMaterial form persists new material in backend
-    // Finish actions/materials
-    // Finish actions/projects?
     // Stretch: Ravelry API hookup
     // Stretch: Index Filter/Search by project name or material name
 
@@ -47,21 +43,23 @@ class App extends Component {
   render() {
     console.log("Loaded App")
     console.log(this.state)
+    console.log(this.props)
+    // debugger
     return (
       <Router>
       <div>
 
         <Link to="/"><button>Home</button></Link>
-        <Link to="/new"><button>New Project</button></Link>
+        {/* <Link to="/new"><button>New Project</button></Link> */}
         <Link to="/materials"><button>Materials Index</button></Link>
         <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
 
         <Switch>  
-          <Route path="/materials" render = {() => (<MaterialsContainer materials = {this.state.materials}/>)}/>
+          <Route path="/materials" render = {() => (<MaterialsContainer/>)}/>
           <Route path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
           <Route path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
-          {/* <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} /> */}
-          {/* Match gives us access to the id, and  */}
+          <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />
+          
         </Switch>
       
       </div> 
@@ -70,14 +68,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {materials: state.materials,
-          projects: state.projects
-  }
-}
-
-// const mapDispatchToProps = dispatch => {
-//   getActionNowAsProps: () => dispatch(addMaterials)
-// }
-
-export default connect(mapStateToProps, { fetchMaterials, fetchProjects })(App)
+export default App

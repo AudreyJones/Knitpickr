@@ -11,7 +11,7 @@ export default function MaterialCard(props) {
      };
         return(
             <div>
-                
+                These should be material cards
                  
                  {/* {props.material.name} === "yarn" ? return "skeins" : null} */}
                 
