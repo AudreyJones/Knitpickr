@@ -14,7 +14,7 @@ export default class MaterialsContainer extends Component {
         
         return (
            <ul>
-              
+           {this.props.materials.map(material => <li key={material.id}> <Link to={`/materials/${material.id}`}> {material.name} </Link> </li>)}
            </ul>
             
         )

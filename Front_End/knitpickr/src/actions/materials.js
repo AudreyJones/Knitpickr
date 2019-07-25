@@ -1,4 +1,5 @@
 export function fetchMaterials() {
+// Your ACTION CREATOR
 
     console.log("Hitting fetchMaterials")
     return (dispatch) => {
@@ -10,10 +11,10 @@ export function fetchMaterials() {
         // Second action sent after promise is resolved
             .then(materials => {
                 console.log('Promise resolved -- Actually Fetching Materials')
-                return dispatch(
+                return dispatch({ 
                     type: 'FETCHING_MATERIALS',
                     payload: materials
-                )
+                })
                 }
             )
     }

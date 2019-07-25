@@ -1,5 +1,5 @@
 export function fetchProjects() {
-
+//  YOUR PROJECTS ACTION CREATOR
    console.log("Hitting fetchProjects")
    return (dispatch) => {
        // First action sent immediately after promise is returned
@@ -10,15 +10,17 @@ export function fetchProjects() {
        // Second action sent after promise is resolved
            .then(projects => {
                console.log('Promise resolved -- Actually Fetching Projects')
-               return dispatch(
+               return dispatch({
                    type: 'FETCHING_PROJECTS',
                    payload: projects
-               )
+                })
                }
            )
+    }
+}
  
-
-
+// To be continued....for POST request showing data persistence!
+// {
 // export const addProject = (project) => {
 //    const ( name, brand, color, quantity, project_id) = project
 //    return (dispatch) => {

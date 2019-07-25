@@ -1,8 +1,10 @@
 export default function projectsReducer(
+    // YOUR PROJECTS REDUCER
+
     state= {loading:false, projects:[]}, action) {
         switch (action.type) {
 
-            case 'LOADING_PROJECTS'
+            case 'LOADING_PROJECTS':
                 console.log('Loading Projects')
                 return {...state, loading: true}
                 

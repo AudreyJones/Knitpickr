@@ -1,8 +1,10 @@
 export default function materialsReducer(
+    // YOUR MATERIALS REDUCER
+
     state= {loading:false, materials:[]}, action) {
         switch (action.type) {
 
-            case 'LOADING_MATERIALS'
+            case 'LOADING_MATERIALS':
                 console.log('Loading Materials')
                 return {...state, loading: true}
                 

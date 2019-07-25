@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+
+// importing our various Containers and Presentational components...
 import ProjectsContainer from './containers/ProjectsContainer';
 import MaterialsContainer from './containers/MaterialsContainer';
-
 import ProjectShow from './components/ProjectShow';
 import MaterialShow from './components/MaterialShow';
+
+// importing our Action creators and { connect } to mapState and Dispatch to Props!
 import { connect } from 'react-redux'
+import { fetchMaterials } from './actions/materials'
+import { fetchProjects } from './actions/projects'
 
 
 class App extends Component {
-
-    // COMPLETED: Need a projects (Index) page
-    // COMPLETED: For each project, a show page which lists materials.
-    // COMPLETED: form to create material, lives on project show page
+    // To Do: 
     // AddMaterial form persists new material in backend
     // Finish actions/materials
     // Finish actions/projects?
@@ -25,23 +27,20 @@ class App extends Component {
           .then(projects => this.setState({projects}))
     }
   
-    addMaterial = (name, brand, color, quantity, project_id) => {
-      console.log("sent added material to API")
-      const data = {name, brand, color, quantity, project_id}
-      fetch("http://localhost:3001/materials", {
-        method: 'POST',
-        headers: {
-          'Content-Type' : 'application-json',
-        },
-        body: JSON.stringify(data)
-      })
-      .then(resp => resp.json())
-      .then(console.log())
-    }
-
-    handleOn = () => {
-
-    }
+    // POST request for data persistence
+    // addMaterial = (name, brand, color, quantity, project_id) => {
+    //   console.log("sent added material to Rails API")
+    //   const data = {name, brand, color, quantity, project_id}
+    //   fetch("http://localhost:3001/materials", {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type' : 'application-json',
+    //     },
+    //     body: JSON.stringify(data)
+    //   })
+    //   .then(resp => resp.json())
+    //   .then(console.log())
+    // }
     
     
 
@@ -50,7 +49,6 @@ class App extends Component {
     console.log(this.state)
     return (
       <Router>
-        {this.state.projects.length > 0 ?
       <div>
 
         <Link to="/"><button>Home</button></Link>
@@ -62,12 +60,11 @@ class App extends Component {
           <Route path="/materials" render = {() => (<MaterialsContainer materials = {this.state.materials}/>)}/>
           <Route path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
           <Route path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
-          <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />
+          {/* <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} /> */}
           {/* Match gives us access to the id, and  */}
         </Switch>
       
-      </div> : <h1>Projects are Loading...</h1>
-        }
+      </div> 
       </Router>
     )
   }
@@ -79,8 +76,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  getActionNowAsProps: () => dispatch(addMaterials)
-}
+// const mapDispatchToProps = dispatch => {
+//   getActionNowAsProps: () => dispatch(addMaterials)
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, { fetchMaterials, fetchProjects })(App)

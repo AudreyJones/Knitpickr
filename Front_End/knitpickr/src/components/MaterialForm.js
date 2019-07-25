@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {addMaterial} from '../actions/materials'
+import { fetchMaterials } from '../actions/materials'
 
 class MaterialForm extends Component {
 
@@ -70,4 +70,4 @@ class MaterialForm extends Component {
     }
 }
 
-export default connect(null,{addMaterial})(MaterialForm)
+export default connect(null,{fetchMaterials})(MaterialForm)
