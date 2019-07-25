@@ -1,6 +1,5 @@
 export default function materialsReducer(
-    state={loading:false, materials:[]},
-    action) => {
+    state= {loading:false, materials:[]}, action) {
         switch (action.type) {
 
             case 'LOADING_MATERIALS'

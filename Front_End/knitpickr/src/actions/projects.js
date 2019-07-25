@@ -1,41 +1,40 @@
-import projects from '../reducers/projects'
+export function fetchProjects() {
 
-
-// Finish completing actions
-
-export const fetchProjects = () => {
-   return dispatch => {
-      dispatch({ type: "LOADING_PROJECTS" })
-      const url = "http://localhost:3001/projects"
-      debugger
-      return fetch(url)
-         .then(resp => {
-            console.log(resp)
-            return resp.json()
-         })
-         .catch(error => console.log(error))
-         .then(projects => {
-            return dispatch({ type: "FETCH_PROJECTS", projects})
-         })
-   }
-}
-
-export const addProject = (project) => {
-   const ( name, brand, color, quantity, project_id) = project
+   console.log("Hitting fetchProjects")
    return (dispatch) => {
-       return fetch('http://localhost:3001/projects', {
-           method: POST,
-           headers: {
-               'Content-Type': 'application/json',
-               Accept: 'application/json'
-           },
-           body: JSON.stringify({
-               name,
-               materials
-           })
-       })
-       .then(resp => resp.json())
-       .then(projects => dispatch({type:"ADD_PROJECT", project}))
-       .catch(error => console.error(error))
-   }
-}
+       // First action sent immediately after promise is returned
+       dispatch({type: 'LOADING_PROJECTS'})
+       return fetch('http://localhost/3001/projects')
+           .then(r => r.json())
+           .catch(error => console.log(error))
+       // Second action sent after promise is resolved
+           .then(projects => {
+               console.log('Promise resolved -- Actually Fetching Projects')
+               return dispatch(
+                   type: 'FETCHING_PROJECTS',
+                   payload: projects
+               )
+               }
+           )
+ 
+
+
+// export const addProject = (project) => {
+//    const ( name, brand, color, quantity, project_id) = project
+//    return (dispatch) => {
+//        return fetch('http://localhost:3001/projects', {
+//            method: POST,
+//            headers: {
+//                'Content-Type': 'application/json',
+//                Accept: 'application/json'
+//            },
+//            body: JSON.stringify({
+//                name,
+//                materials
+//            })
+//        })
+//        .then(resp => resp.json())
+//        .then(projects => dispatch({type:"ADD_PROJECT", project}))
+//        .catch(error => console.error(error))
+//    }
+// }
