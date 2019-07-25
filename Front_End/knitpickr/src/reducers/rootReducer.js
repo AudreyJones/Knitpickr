@@ -1,7 +1,11 @@
 import {combineReducers} from 'redux';
-// Need to import other reducers and combine them here
-import materials from './materials'
-import projects from './projects'
+
+// Materials Reducer
+    import materials from './materials'
+// Projects Reducer
+    import projects from './projects'
+
+const rootReducer = combineReducers({materials: materials, projects: projects})
 
 
-export default combineReducers({materials, projects})
+export default rootReducer

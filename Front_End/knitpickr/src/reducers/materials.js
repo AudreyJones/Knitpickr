@@ -1,14 +1,17 @@
-export default (state=[], action) => {
+export default function materialsReducer(
+    state={loading:false, materials:[]},
+    action) => {
         switch (action.type) {
-            case 'ADD_MATERIAL':
-                console.log('We want to add a material here')
+
+            case 'LOADING_MATERIALS'
+                console.log('Loading Materials')
+                return {...state, loading: true}
+                
+            case 'FETCHING_MATERIALS':
+                state = {loading: false, materials: action.payload}
+                console.log('Fetching Materials')
+                console.log(state)
                 return state
-
-            // case 'EDIT_MATERIAL':
-            //     dispatch({type: 'EDIT_MATERIAL', payload: 'something'})
-
-            // case 'REMOVE_MATERIAL':
-            //     dispatch({type: 'REMOVE_MATERIAL', payload: 'something'})
 
             default:
                 return state

@@ -1,16 +1,23 @@
-// // import materials from '../reducers/materials'
+export function fetchMaterials() {
 
-
-// export const fetchMaterials = () => {
-//     return (dispatch) => {
-//        dispatch({ type: "LOADING_MATERIALS" })
-//        return fetch("http://localhost:3001/projects")
-//           .then(resp => resp.json())
-//           .then(materials => dispatch ({ type: "FETCH_MATERIALS", materials} ))
-//           .catch(error => console.log(error))
-//     }
-//  }
-
+    console.log("Hitting fetchMaterials")
+    return (dispatch) => {
+        // First action sent immediately after promise is returned
+        dispatch({type: 'LOADING_MATERIALS'})
+        return fetch('http://localhost/3001/materials')
+            .then(r => r.json())
+            .catch(error => console.log(error))
+        // Second action sent after promise is resolved
+            .then(materials => {
+                console.log('Promise resolved -- Actually Fetching Materials')
+                return dispatch(
+                    type: 'FETCHING_MATERIALS',
+                    payload: materials
+                )
+                }
+            )
+    }
+}
 //  export const addMaterial = (material) => {
 //     //  Destructuring
 //     const ({name, brand, color, quantity, project_id} = {material})
@@ -34,8 +41,7 @@
 //     }
 //  }
 
-// //  export const setSearch = (searchTerm) => {
-// //      return{
-// //          type: "MATERIAL_SEARCH", search:searchTerm
-// //      }
-// //  }
+//  export const setSearch = (searchTerm) => {
+//      return{
+//          type: "MATERIAL_SEARCH", search:searchTerm
+//      }

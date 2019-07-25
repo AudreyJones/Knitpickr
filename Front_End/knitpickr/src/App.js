@@ -18,6 +18,12 @@ class App extends Component {
     // Finish actions/projects?
     // Stretch: Ravelry API hookup
     // Stretch: Index Filter/Search by project name or material name
+
+    componentDidMount(){
+      fetch("http://localhost:3001/projects")
+          .then(res => res.json())
+          .then(projects => this.setState({projects}))
+    }
   
     addMaterial = (name, brand, color, quantity, project_id) => {
       console.log("sent added material to API")
@@ -37,11 +43,7 @@ class App extends Component {
 
     }
     
-    componentDidMount(){
-    fetch("http://localhost:3001/projects")
-        .then(res => res.json())
-        .then(projects => this.setState({projects}))
-  }
+    
 
   render() {
     console.log("Loaded App")
@@ -71,8 +73,14 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {materials: state.materials,
+          projects: state.projects
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   getActionNowAsProps: () => dispatch(addMaterials)
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)
