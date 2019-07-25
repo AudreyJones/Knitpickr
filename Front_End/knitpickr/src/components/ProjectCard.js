@@ -7,13 +7,14 @@ class ProjectCard extends Component {
         
         return(
              <div>
-                 All Project Cards:
+                 <table>
                     <Card>
                         <Card.Content header='Project Card' />
                         <Card.Content description="Description" />
                         <Card.Content extra>
                         </Card.Content>
                     </Card>
+                </table>
              </div>
         )
     }

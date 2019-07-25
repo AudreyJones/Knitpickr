@@ -1,19 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Card } from 'semantic-ui-react'
 
-export default function MaterialCard(props) {
-    console.log({props})
-    // var tableStyle = {
-    //     // "border": "1px solid",
-    //     margin: '40px',
-    //     padding: '10px' ,
-    //     width: '100%',
-    //     // text-align:'center'
-    //  };
+class MaterialCard extends Component {
+    render() {
+        
         return(
-            <div>
-                <table>
-                    const MaterialCard = () => (
+             <div>
+                 <table>
                     <Card>
                         <Card.Content header='Material Card' />
                         <Card.Content description="Description" />
@@ -21,6 +14,9 @@ export default function MaterialCard(props) {
                         </Card.Content>
                     </Card>
                 </table>
-            </div>
+             </div>
         )
+    }
 }
+
+export default MaterialCard

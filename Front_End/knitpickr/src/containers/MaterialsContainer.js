@@ -17,11 +17,11 @@ class MaterialsContainer extends Component {
       //   debugger
         return (
            <div>
-         MaterialsContainer, filled with MaterialCards
-           <table >
+         
+            <MaterialCard />
           {/* for each material, render a material card */}
           {/* {this.props.materials.map(material => <li key={material.id}> <Link to={`/materials/${material.id}`}> {material.name} </Link> </li>)} */}
-           </table>
+           
            </div>
             
         )

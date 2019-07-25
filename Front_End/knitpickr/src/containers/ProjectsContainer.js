@@ -14,7 +14,6 @@ class ProjectsContainer extends Component {
      render() {
         console.log("Loaded Projects Container")
         console.log(this)
-
         return (
            <div>
             <ProjectCard />
