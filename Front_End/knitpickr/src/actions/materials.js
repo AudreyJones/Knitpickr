@@ -26,7 +26,7 @@ export function fetchMaterials() {
 //                 Accept: 'application/json'
 //             },
 //             body: JSON.stringify({
-//                 name,
+//                 nme,
 //                 brand,
 //                 color,
 //                 quantity

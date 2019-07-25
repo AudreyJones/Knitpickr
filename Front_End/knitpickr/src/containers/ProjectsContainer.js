@@ -31,7 +31,6 @@ const mapStateToProps = state => {
  }
  
  const mapDispatchToProps = dispatch => ({
-   
       fetchProjects: projects => dispatch({type: 'FETCHING_PROJECTS', projects})
   
  })

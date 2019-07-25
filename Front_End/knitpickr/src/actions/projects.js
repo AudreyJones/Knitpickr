@@ -1,6 +1,6 @@
 export function fetchProjects() {
 //  YOUR PROJECTS ACTION CREATOR
-   console.log("Hitting fetchProjects")
+   console.log("Hitting fetchProjects ACTION CREATOR")
 //    debugger
    return (dispatch) => {
        // First action sent immediately after promise is returned
@@ -9,7 +9,7 @@ export function fetchProjects() {
            .then(r => r.json())
            .catch(error => console.log(error))
        // Second action sent after promise is resolved
-       //    console.log('Promise resolved -- Actually Fetching Projects', projects)
+        //   console.log('Promise resolved -- Actually Fetching Projects', projects)
            .then(projects => dispatch({ type: 'FETCHING_PROJECTS', payload: projects }))
     }
 }
