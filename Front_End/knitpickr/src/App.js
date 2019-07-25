@@ -55,10 +55,11 @@ class App extends Component {
         <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
 
         <Switch>  
-          <Route path="/materials" render = {() => (<MaterialsContainer/>)}/>
-          <Route path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
-          <Route path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
-          <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />
+          
+          <Route exact path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
+          <Route exact path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
+          <Route exact path="/materials" component = {MaterialsContainer}/>
+          <Route exact path="/"  component = {ProjectsContainer} />
           
         </Switch>
       

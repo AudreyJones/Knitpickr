@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {fetchMaterials} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
 
-export default class MaterialsContainer extends Component {
+class MaterialsContainer extends Component {
 
     
   
@@ -30,8 +30,17 @@ const mapStateToProps = state => {
    }
  }
  
- const mapDispatchToProps = dispatch => {
-   getActionNowAsProps: () => dispatch(fetchMaterials)
+ const mapDispatchToProps = (dispatch) => {
+    console.log(dispatch)
+   return({
+      sendMaterials: () => {dispatch({
+         type: 'FETCHING_MATERIALS',
+         payload: 'something'
+      })}
+  })
  }
 
-export default connect(mapStateToProps, { fetchMaterials })(MaterialsContainer)
+
+ 
+
+export default connect(mapStateToProps, mapDispatchToProps)(MaterialCard)

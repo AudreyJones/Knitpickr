@@ -4,7 +4,7 @@ import {fetchProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
 
-export default class ProjectsContainer extends Component {
+class ProjectsContainer extends Component {
 
      render() {
         console.log("Loaded Projects Container")
@@ -26,9 +26,14 @@ const mapStateToProps = state => {
    }
  }
  
- const mapDispatchToProps = dispatch => {
-   getActionNowAsProps: () => dispatch(fetchProjects)
+ const mapDispatchToProps = (dispatch) => {
+   return({
+      sendProjects: () => {dispatch({
+         type: 'FETCHING_PROJECTS',
+         payload: 'something'
+      })}
+  })
  }
 
- export default connect(mapStateToProps,{ fetchProjects })(ProjectsContainer)
+ export default connect(mapStateToProps, mapDispatchToProps)(ProjectCard)
 
