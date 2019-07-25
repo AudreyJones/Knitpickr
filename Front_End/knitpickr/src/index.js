@@ -1,25 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.css';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import CombineReducers from './reducers/CombineReducers';
+import rootReducer from './reducers/rootReducer';
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE || compose;
 
-const store = createStore(CombineReducers, composeEnhancer(applyMiddleware(thunk)));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE_ || compose;
 
-const Home = () => {
-    return (
-      <div>
-        <h1>Home!</h1>
-      </div>
-    );
-  };
+let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+
+// const Home = () => {
+//     return (
+//       <div>
+//         <h1>Home!</h1>
+//       </div>
+//     );
+//   };
 
 ReactDOM.render(
         <Provider store={store}>

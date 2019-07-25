@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import ProjectsContainer from './containers/ProjectsContainer';
+import MaterialsContainer from './containers/MaterialsContainer';
+
 import ProjectShow from './components/ProjectShow';
 import MaterialShow from './components/MaterialShow';
 import { connect } from 'react-redux'
@@ -16,11 +18,6 @@ class App extends Component {
     // Finish actions/projects?
     // Stretch: Ravelry API hookup
     // Stretch: Index Filter/Search by project name or material name
-
-    state = {
-      projects: [],
-      materials: []
-    }
   
     addMaterial = (name, brand, color, quantity, project_id) => {
       console.log("sent added material to API")
@@ -35,12 +32,17 @@ class App extends Component {
       .then(resp => resp.json())
       .then(console.log())
     }
+
+    handleOn = () => {
+
+    }
     
     componentDidMount(){
     fetch("http://localhost:3001/projects")
         .then(res => res.json())
         .then(projects => this.setState({projects}))
   }
+
   render() {
     console.log("Loaded App")
     console.log(this.state)
@@ -55,7 +57,7 @@ class App extends Component {
         <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
 
         <Switch>  
-          <Route path="/materials" render = {() => (<MaterialsContainer materials = {this.state.materials}/>)}
+          <Route path="/materials" render = {() => (<MaterialsContainer materials = {this.state.materials}/>)}/>
           <Route path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
           <Route path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
           <Route path="/" render = { () => (<ProjectsContainer projects = {this.state.projects}/>)} />

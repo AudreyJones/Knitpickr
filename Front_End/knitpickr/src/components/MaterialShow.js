@@ -13,7 +13,7 @@ export default function MaterialShow(props) {
         <h2>Favorited? {props.favorited ? true : null}</h2>
         <h2>You will need: </h2>
         <h3>{props.materials.length > 0 ? props.materials.map((material, index) => <MaterialCard key={material.id} index={index} material={material} />): " No materials found!"}</h3>                
-        < MaterialForm addMaterial={props.addMaterial} projectID={props.id} />
+        {/* < MaterialForm addMaterial={props.addMaterial} projectID={props.id} /> */}
         </div>
 
         

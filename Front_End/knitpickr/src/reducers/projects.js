@@ -1,8 +1,8 @@
-export (state: projects: [], 
+export default (state= [], 
     action) => {
         switch (action.type) {
 
             default:
-                return projects
+                return state
         }
 }

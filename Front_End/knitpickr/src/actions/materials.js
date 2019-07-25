@@ -1,4 +1,4 @@
-// import materials from '../reducers/materials'
+// // import materials from '../reducers/materials'
 
 
 // export const fetchMaterials = () => {
@@ -12,10 +12,11 @@
 //  }
 
 //  export const addMaterial = (material) => {
-//     // const ( name, brand, color, quantity, project_id) = material
+//     //  Destructuring
+//     const ({name, brand, color, quantity, project_id} = {material})
 //     return (dispatch) => {
 //         return fetch('http://localhost:3001/materials', {
-//             method: POST,
+//             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json',
 //                 Accept: 'application/json'
@@ -28,7 +29,7 @@
 //             })
 //         })
 //         .then(resp => resp.json())
-//         .then(materials => dispatch({type:"ADD_MATERIAL", material}))
+//         .then(material => dispatch({type:"ADD_MATERIAL", material}))
 //         .catch(error => console.error(error))
 //     }
 //  }

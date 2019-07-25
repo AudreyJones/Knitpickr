@@ -6,7 +6,7 @@ import MaterialForm from './MaterialForm'
 export default function ProjectShow(props) {
     console.log('ProjectShow is loaded, here are its props:')
     console.log({props})
-    debugger
+    // debugger
     return(
         <div>
         <h1>Project: {props.name}</h1>
