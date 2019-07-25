@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {addMaterial} from '../actions/materials'
 
-export default class MaterialForm extends Component {
+class MaterialForm extends Component {
 
     state = {
         name:"yarn",
@@ -67,3 +69,5 @@ export default class MaterialForm extends Component {
         )
     }
 }
+
+export default connect(null,{addMaterial})(MaterialForm)

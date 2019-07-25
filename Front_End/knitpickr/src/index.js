@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
 import reducers from './reducers/reducers';
 
-// const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducers, applyMiddleware(thunk));
 
 const Home = () => {
     return (

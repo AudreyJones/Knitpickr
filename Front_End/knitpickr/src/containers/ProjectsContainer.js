@@ -13,7 +13,6 @@ export default class ProjectsContainer extends Component {
         return (
            <ul>
               {this.props.projects.map(project => <li key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </li>)}
-              {/* REALLY NICE example of nested syntax here with the Link to path! */}
            </ul>
             
         )
