@@ -5,19 +5,18 @@ import MaterialCard from '../components/MaterialCard';
 
 class MaterialsContainer extends Component {
 
-    
-  
      render() {
         console.log("Loaded Materials Container")
-        console.log(this.state.materials) //null --> first run, after debugger -->
+        console.log(this) //null --> first run, after debugger --> full
         debugger
         return (
-           <ul>
+           <div>
+         Material Container, filled with MaterialCards
            <table >
-              Material Cards arranged here!
-           {/* {this.props.materials.map(material => <li key={material.id}> <Link to={`/materials/${material.id}`}> {material.name} </Link> </li>)} */}
+          {/* for each material, render a material card */}
+          {/* {this.props.materials.map(material => <li key={material.id}> <Link to={`/materials/${material.id}`}> {material.name} </Link> </li>)} */}
            </table>
-           </ul>
+           </div>
             
         )
      }
@@ -25,22 +24,23 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   return {materials: state.materials,
-           projects: state.projects
+   console.log(state)
+   return {
+      materials: state.materials,
+      projects: state.projects
    }
  }
  
  const mapDispatchToProps = (dispatch) => {
     console.log(dispatch)
    return({
-      sendMaterials: () => {dispatch({
-         type: 'FETCHING_MATERIALS',
-         payload: 'something'
-      })}
+      fetchMaterials: (event) => {dispatch(
+        fetchMaterials(event)
+      )}
   })
  }
 
 
  
 
-export default connect(mapStateToProps, mapDispatchToProps)(MaterialCard)
+export default connect(mapStateToProps, mapDispatchToProps)(MaterialsContainer)

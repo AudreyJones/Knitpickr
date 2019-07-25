@@ -42,20 +42,17 @@ class App extends Component {
 
   render() {
     console.log("Loaded App")
-    console.log(this.state)
-    console.log(this.props)
     // debugger
     return (
       <Router>
       <div>
 
         <Link to="/"><button>Home</button></Link>
-        {/* <Link to="/new"><button>New Project</button></Link> */}
         <Link to="/materials"><button>Materials Index</button></Link>
-        <Link to="/projects/favorited"><button>Favorited Projects</button></Link>
+        
 
         <Switch>  
-          
+          {/* Refactor state into Container Components themselves and access via presentational components */}
           <Route exact path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
           <Route exact path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
           <Route exact path="/materials" component = {MaterialsContainer}/>

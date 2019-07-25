@@ -8,7 +8,7 @@ class ProjectsContainer extends Component {
 
      render() {
         console.log("Loaded Projects Container")
-        console.log("ProjectsContainer State", this.state.projects)
+        console.log(this)
 
         return (
            <ul>
@@ -35,5 +35,5 @@ const mapStateToProps = state => {
   })
  }
 
- export default connect(mapStateToProps, mapDispatchToProps)(ProjectCard)
+ export default connect(mapStateToProps, mapDispatchToProps)(ProjectsContainer)
 
