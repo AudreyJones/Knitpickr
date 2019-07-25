@@ -1,21 +1,16 @@
 export function fetchProjects() {
 //  YOUR PROJECTS ACTION CREATOR
    console.log("Hitting fetchProjects")
+//    debugger
    return (dispatch) => {
        // First action sent immediately after promise is returned
        dispatch({type: 'LOADING_PROJECTS'})
-       return fetch('http://localhost/3001/projects')
+       return fetch('http://localhost:3001/projects')
            .then(r => r.json())
            .catch(error => console.log(error))
        // Second action sent after promise is resolved
-           .then(projects => {
-               console.log('Promise resolved -- Actually Fetching Projects')
-               return dispatch({
-                   type: 'FETCHING_PROJECTS',
-                   payload: projects
-                })
-               }
-           )
+       //    console.log('Promise resolved -- Actually Fetching Projects', projects)
+           .then(projects => dispatch({ type: 'FETCHING_PROJECTS', payload: projects }))
     }
 }
  

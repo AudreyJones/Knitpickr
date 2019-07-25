@@ -1,26 +1,26 @@
 import React from 'react';
+import { Card } from 'semantic-ui-react'
 
 export default function MaterialCard(props) {
     console.log({props})
-    var tableStyle = {
-        // "border": "1px solid",
-        margin: '40px',
-        padding: '10px' ,
-        width: '100%',
-        // text-align:'center'
-     };
+    // var tableStyle = {
+    //     // "border": "1px solid",
+    //     margin: '40px',
+    //     padding: '10px' ,
+    //     width: '100%',
+    //     // text-align:'center'
+    //  };
         return(
             <div>
-                These should be material cards
-                
-                 <table style={tableStyle}>
-                    {/* <tr><th>Things</th></tr> */}
-                    <tr>
-                    {/* {props.index + 1}). {props.material.brand} {props.material.color} {props.material.name} - {props.material.quantity} skein(s) */}
-                    </tr>
-                    
+                <table>
+                    const MaterialCard = () => (
+                    <Card>
+                        <Card.Content header='Material Card' />
+                        <Card.Content description="Description" />
+                        <Card.Content extra>
+                        </Card.Content>
+                    </Card>
                 </table>
-                
             </div>
         )
 }

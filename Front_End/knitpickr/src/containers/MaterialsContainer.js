@@ -7,7 +7,7 @@ class MaterialsContainer extends Component {
 
 
    componentDidMount() {
-      debugger
+      // debugger
       this.props.fetchMaterials()
    }
 
@@ -51,4 +51,4 @@ const mapStateToProps = state => {
 
  
 
-export default connect(mapStateToProps, mapDispatchToProps)(MaterialsContainer)
+export default connect((mapStateToProps, mapDispatchToProps), { fetchMaterials })(MaterialsContainer)

@@ -9,6 +9,7 @@ export default function projectsReducer(
                 return {...state, loading: true}
                 
             case 'FETCHING_PROJECTS':
+                debugger
                 state = {loading: false, projects: action.payload}
                 console.log('Fetching Proejcts')
                 console.log(state)

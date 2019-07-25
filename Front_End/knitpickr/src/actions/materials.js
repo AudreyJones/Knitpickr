@@ -5,18 +5,14 @@ export function fetchMaterials() {
     return (dispatch) => {
         // First action sent immediately after promise is returned
         dispatch({type: 'LOADING_MATERIALS'})
-        return fetch('http://localhost/3001/materials')
+        return fetch('http://localhost:3001/materials')
             .then(r => r.json())
-            .catch(error => console.log(error))
+            
         // Second action sent after promise is resolved
-            .then(materials => {
-                console.log('Promise resolved -- Actually Fetching Materials')
-                return dispatch({ 
-                    type: 'FETCHING_MATERIALS',
-                    payload: materials
-                })
-                }
+            .then(materials => dispatch({ type: 'FETCHING_MATERIALS', payload: materials})
+                // console.log('Promise resolved -- Actually Fetching Materials')
             )
+            
     }
 }
 //  export const addMaterial = (material) => {
