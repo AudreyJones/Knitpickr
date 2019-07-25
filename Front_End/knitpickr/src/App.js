@@ -3,9 +3,10 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import ProjectsContainer from './containers/ProjectsContainer';
 import ProjectShow from './components/ProjectShow';
 import MaterialShow from './components/MaterialShow';
+import { connect } from 'react-redux'
 
 
-export default class App extends Component {
+class App extends Component {
 
     // COMPLETED: Need a projects (Index) page
     // COMPLETED: For each project, a show page which lists materials.
@@ -67,3 +68,9 @@ export default class App extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  getActionNowAsProps: () => dispatch(addMaterials)
+}
+
+export default App

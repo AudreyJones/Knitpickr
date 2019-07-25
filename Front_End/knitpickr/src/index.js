@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 // import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.css';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
-import reducers from './reducers/reducers';
+import CombineReducers from './reducers/CombineReducers';
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE || compose;
+
+const store = createStore(CombineReducers, composeEnhancer(applyMiddleware(thunk)));
 
 const Home = () => {
     return (
@@ -20,7 +22,9 @@ const Home = () => {
   };
 
 ReactDOM.render(
-        <App />, 
+        <Provider store={store}>
+        <App />
+        </Provider>, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -12,7 +12,6 @@ class MaterialsController < ApplicationController
         @project = Project.find_by_id(params[:project_id])
         # @last_material = @project.materials.last
         Material.create(project_id: @project.id)
-       
         render :json @material
     end
 

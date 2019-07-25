@@ -1,11 +1,11 @@
-// import {combineReducers} from 'redux';
+import {combineReducers} from 'redux';
+import materials from './materials'
+import projects from './projects'
 // Need to import other reducers and combine them here
 
 
-// const reducerAction = (state = {name: 'this project'}, action) => {
-//     
-// }
+const reducerAction = (state = {name: 'this project'}, action) => {
+    
+}
 
-// const CombineReducers = combineReducers({reducerAction})
-
-// export default CombineReducers
+export default const CombineReducers = combineReducers({materials, projects})
