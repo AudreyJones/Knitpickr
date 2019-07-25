@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchProjects } from '../actions/projects'
+import { Button, Form } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
 
@@ -39,17 +40,22 @@ class ProjectForm extends Component {
     render() {
         return(
             <div>
+                <Form>
                 <form onSubmit={this.handleSubmit}>
+                    <Form.Field>
                     <label>Material Name/Type: 
                     <select value={this.state.name} onChange={this.handleSelectChange} >
                         <option value="yarn">yarn</option>
                         <option value="hook">hook</option>
                     </select>
                     </label>
+                    </Form.Field>
 
+                    <Form.Field>
                     <label>Brand
                     <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>
                     </label>
+                    </Form.Field>
 
                     <label>Color
                     <input type="text" id="materialColor" name="color" onChange={this.handleChange}/>
@@ -59,11 +65,12 @@ class ProjectForm extends Component {
                     <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
                     </label>
 
-                    <input type="submit" value="Add Material" onChange={this.handleChange}/>
+                    <Button type="submit" value="Add Material" onChange={this.handleChange}>Add Project</Button>
                 </form>
+                </Form>
             </div>
         )
     }
 }
 
-export default connect(null,{fetchMaterials})(MaterialForm)
+export default connect(null,{fetchProjects})(ProjectForm)

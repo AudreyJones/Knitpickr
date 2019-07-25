@@ -18,9 +18,8 @@ class ProjectsContainer extends Component {
         return (
            <div>
            <ProjectForm />
-              {/* For each project, render a ProjectCard */}
-            
-            {/*  {this.props.projects.map(project => <ProjectCard key={project.id}> <Link to={`/projects/${project.id}`}> {project.name} </Link> </Project> )}*/}
+            <br />
+             {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`}/>)}
             <ProjectCard />
             
            </div>
@@ -30,7 +29,7 @@ class ProjectsContainer extends Component {
 
 const mapStateToProps = state => {
    console.log("state: ", state)
-   debugger
+   // debugger
    return {
       // Naming the prop held by the ProjectsContainer and what we're filling it with.
            projects: state.projects.projects

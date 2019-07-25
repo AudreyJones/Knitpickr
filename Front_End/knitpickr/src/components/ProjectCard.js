@@ -9,7 +9,7 @@ class ProjectCard extends Component {
     }
 
     render() {
-        // console.log(store)
+        console.log(this)
         return(
              <div>
                  <table>
