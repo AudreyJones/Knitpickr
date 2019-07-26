@@ -2,17 +2,11 @@ import React from 'react';
 import { Card, Image } from 'semantic-ui-react'
 
 
- const ProjectCard = (props) => {
-
-        console.log("ProjectCard is:", props.project)
+const ProjectCard = (props) => {
+        // console.log("ProjectCard is:", props.project)
         // debugger
         const dummy = [ "Dummy Description"]
-        
-        // debugger
         return(
-            
-           
-                 
                     <Card>
                         <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />
                         <Card.Content >
@@ -31,9 +25,7 @@ import { Card, Image } from 'semantic-ui-react'
                         
                     </Card>
                 
-             
         )
-    
 }
 
 export default ProjectCard

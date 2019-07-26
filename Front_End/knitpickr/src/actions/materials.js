@@ -1,13 +1,12 @@
 export function fetchMaterials() {
-// Your ACTION CREATOR
-
+//  Your MATERIALS ACTION CREATOR
     console.log("Hitting fetchMaterials")
     return (dispatch) => {
         // First action sent immediately after promise is returned
         dispatch({type: 'LOADING_MATERIALS'})
         return fetch('http://localhost:3001/materials')
             .then(r => r.json())
-            
+            .catch(error => console.log(error))
         // Second action sent after promise is resolved
             .then(materials => dispatch({ type: 'FETCHING_MATERIALS', payload: materials})
                 // console.log('Promise resolved -- Actually Fetching Materials')
@@ -19,8 +18,7 @@ export function fetchMaterials() {
 
  export const addMaterial = (material) => {
     //  debugger
-    //  Destructuring
-    // const ({name, brand, color, quantity, project_id} = {material})
+    //  Destructuring: const ({name, brand, color, quantity, project_id} = {material})
     return (dispatch) => {
         return fetch('http://localhost:3001/materials', {
             method: 'POST',

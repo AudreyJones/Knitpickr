@@ -1,14 +1,8 @@
-const Welcome = ({user, onSignOut})=> {
-    // This is a dumb "stateless" component
-    return (
-      <div>
-        Welcome <strong>{user.username}</strong>!
-        <a href="javascript:;" onClick={onSignOut}>Sign out</a>
-      </div>
-    )
-  }
+import React, { Component } from 'react';
+
+
   
-  class LoginForm extends React.Component {
+export default class LoginForm extends React.Component {
     
     // Using a class based component here because we're accessing DOM refs
    

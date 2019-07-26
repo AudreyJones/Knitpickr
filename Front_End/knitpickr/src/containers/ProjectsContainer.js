@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { Container, Divider, Card } from 'semantic-ui-react';
-import {fetchProjects, addProjects} from '../actions/projects';
+import { Container, Divider, Card } from 'semantic-ui-react'; //Style Components
+
+// importing our Action creators and { connect } to mapState and Dispatch to Props!
+import {fetchProjects, addProject} from '../actions/projects';
 import { connect } from 'react-redux';
+
+// Components to be rendered in or by an event:
 import ProjectCard from '../components/ProjectCard';
 import ProjectForm from '../components/ProjectForm';
 import ProjectShow from '../components/ProjectShow';
+
 
 class ProjectsContainer extends Component {
 
@@ -13,31 +18,26 @@ class ProjectsContainer extends Component {
       this.props.fetchProjects()
    }
 
-   handleClick = (e) => {
-      // Upon click, needs to display the specific project's show page component
+   handleClick = (e) => { // Upon click, needs to display the specific project's show page component
       console.log("This Project Card has been clicked!")
       // this.props.ProjectShow()
-      
    }
 
      render() {
-        console.log("Loaded ProjectsContainer", this)
-        
+        console.log("Loaded ProjectsContainer:", this)
         return (
            <Container>  
-         <br />
-               <ProjectForm />
+           <Divider />
+            <ProjectForm />
+            <Divider />
           <br />
           <br />
-               
-            
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
                   {this.props.projects.map(project => 
 
                   <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
-                  </Card.Group> 
-           
+            </Card.Group> 
            </Container>
         )
      }
@@ -64,5 +64,5 @@ const mapStateToProps = state => {
 //    deleteFromWish: vehicleId => dispatch({type: 'DELETE_FROM_WISH',vehicleId})
 //   })
 
- export default connect(mapStateToProps, { fetchProjects, addProjects })(ProjectsContainer)
+ export default connect(mapStateToProps, { fetchProjects, addProject })(ProjectsContainer)
 

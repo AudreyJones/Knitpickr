@@ -4,19 +4,20 @@ import { fetchProjects } from '../actions/projects'
 import { Header, Button, Form, Input, TextArea, Select } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
-
-    state = {
-        name:"yarn",
-        materials: []
+    constructor(props){
+        super(props)
+        this.state = {
+            name:"yarn",
+            materials: []
+        }
     }
 
     handleSubmit = (event) => {
         // debugger
         console.log(this.state)
         event.preventDefault()
-
         //send state back to API
-        //clear out form
+    //Reset form
         this.setState({
             name: "",
             materials: []

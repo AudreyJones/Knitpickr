@@ -23,7 +23,7 @@ class MaterialForm extends Component {
         debugger
         this.props.addMaterial(this.state)
         //send state back to API
-        //clear out form
+    //Reset form
         this.setState({
             name: "",
             color:"",

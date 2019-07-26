@@ -13,11 +13,10 @@ export function fetchProjects() {
            .then(projects => dispatch({ type: 'FETCHING_PROJECTS', payload: projects }))
     }
 }
- 
-// To be continued....for POST request showing data persistence!
 
-export const addProjects = (project) => {
-//    const (name, materials) = project
+export const addProject = (project) => {
+    console.log(project)
+//    Destructuring: const (name, materials) = project
    return (dispatch) => {
        return fetch('http://localhost:3001/projects', {
            method: 'POST',
@@ -25,9 +24,7 @@ export const addProjects = (project) => {
                'Content-Type': 'application/json',
                Accept: 'application/json'
            },
-           body: JSON.stringify({
-               project
-           })
+           body: JSON.stringify({project})
        })
        .then(resp => resp.json())
        .then(projects => dispatch({type:"ADD_PROJECT", project}))
