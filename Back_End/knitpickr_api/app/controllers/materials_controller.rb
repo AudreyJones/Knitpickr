@@ -7,13 +7,19 @@ class MaterialsController < ApplicationController
     end
 
     def create
-    #     byebug
+        # byebug
+        @material = Material.new(materials_params)
+        if @material.save
+            render json: @material
+        else
+            render json: {error: 'Did not create new material!'}
+        end
     #     # Creating a new material with data pulled from front-end's MaterialForm
     #     # Requires an action with a fetch request Post method - actions/materials
     #     @project = Project.find_by_id(params[:project_id])
     #     # @last_material = @project.materials.last
     #     Material.create(project_id: @project.id)
-    #     render :json @material
+        # render json: @material
     end
 
     def show
@@ -32,6 +38,6 @@ class MaterialsController < ApplicationController
     private
 
     def materials_params
-        params.require(:material).permit(:id, :name, :quantity, :color, :brand, :favorited, :project_id)
+        params.require(:material).permit(:id, :name, :quantity, :color, :brand, :favorited, :user_id)
     end
 end

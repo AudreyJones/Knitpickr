@@ -13,10 +13,8 @@ const ProjectCard = (props) => {
                             <Card.Header >
                                 {props.project.name}
                             </Card.Header>
-                       
-                            <Card.Description>
-                                Materials: 
-                            </Card.Description>
+                            {/* <Card.Description>
+                            </Card.Description> */}
                         </Card.Content>
 
                         <Card.Content extra>

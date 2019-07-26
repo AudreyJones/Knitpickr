@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     end
 
     def create
+        byebug
         @project = Project.create(project_params)
         render json: @project
     end

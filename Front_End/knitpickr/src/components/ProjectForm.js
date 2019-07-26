@@ -47,14 +47,11 @@ class ProjectForm extends Component {
                     <Header as='h1'>Create a New Project:</Header>
                     <Form.Field>
                     Material Name/Type: 
-                    <select value={this.state.name} onChange={this.handleSelectChange} >
-                        <option value="yarn">yarn</option>
-                        <option value="hook">hook</option>
-                    </select>
+                    <input type="text" id="projectName" name="name" onChange={this.handleChange}/>
                     
                     </Form.Field>
 
-                    <Form.Field>
+                    {/* <Form.Field>
                     <label>Brand
                     <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>
                     </label>
@@ -66,7 +63,7 @@ class ProjectForm extends Component {
 
                     <label>Quantity
                     <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
-                    </label>
+                    </label> */}
                 
 
                     <Button type="submit" value="Add Material" onChange={this.handleChange}>Add Project</Button>

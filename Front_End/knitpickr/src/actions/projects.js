@@ -15,9 +15,11 @@ export function fetchProjects() {
 }
 
 export const addProject = (project) => {
+    debugger
     console.log(project)
 //    Destructuring: const (name, materials) = project
    return (dispatch) => {
+       
        return fetch('http://localhost:3001/projects', {
            method: 'POST',
            headers: {

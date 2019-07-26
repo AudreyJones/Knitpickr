@@ -11,16 +11,15 @@ class MaterialForm extends Component {
             color:"",
             brand:"",
             quantity: 0,
-            user_id: 0
+            user_id: 1
         }
     }
     handleSubmit = (event) => {
         // debugger
         console.log(this.state)
-        event.preventDefault()
-        
+        event.preventDefault() 
         this.state.quantity = parseInt(this.state.quantity)
-        debugger
+        // debugger
         this.props.addMaterial(this.state)
         //send state back to API
     //Reset form
@@ -29,7 +28,7 @@ class MaterialForm extends Component {
             color:"",
             brand:"",
             quantity: 0,
-            user_id: 0
+            user_id: 1
         })
     }
 
@@ -61,10 +60,7 @@ class MaterialForm extends Component {
                     </select>
                     </label>
                     <br />
-                    <select value={this.props.all_Users}>
-                        <option value="yarn">{}</option>
-                        <option value="hook">hook</option>
-                    </select>
+                    
 
                     <label>Brand
                     <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>

@@ -23,9 +23,9 @@ class MaterialsContainer extends Component {
       //   debugger
         return (
            <Container>
-            
+            <Divider/>
                <MaterialForm />
-            
+            <Divider/>
             <br />
             <br />
             <Card.Group itemsPerRow={4}>  

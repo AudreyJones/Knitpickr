@@ -18,7 +18,7 @@ class ProjectsContainer extends Component {
       this.props.fetchProjects()
    }
 
-   handleClick = (e) => { // Upon click, needs to display the specific project's show page component
+   handleClick = (e) => { 
       console.log("This Project Card has been clicked!")
       // this.props.ProjectShow()
    }
@@ -44,7 +44,7 @@ class ProjectsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log("state: ", state)
+   console.log("mapStateToProps: ", state)
    // debugger
    return {
       // Naming the prop held by the ProjectsContainer and what we're filling it with.
