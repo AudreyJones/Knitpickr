@@ -12,33 +12,11 @@ import MaterialShow from './components/MaterialShow';
 
 class App extends Component {
 
-    // To Do: 
-    // -------------
-    // AddMaterial form persists new material in backend
-    // Stretch: Ravelry API hookup
-    // Stretch: Index Filter/Search by project name or material name
-
     componentDidMount(){
       fetch("http://localhost:3001/projects")
           .then(res => res.json())
           .then(projects => this.setState({projects}))
     }
-  
-    // POST request for data persistence
-    // addMaterial = (name, brand, color, quantity, project_id) => {
-    //   console.log("sent added material to Rails API")
-    //   const data = {name, brand, color, quantity, project_id}
-    //   fetch("http://localhost:3001/materials", {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type' : 'application-json',
-    //     },
-    //     body: JSON.stringify(data)
-    //   })
-    //   .then(resp => resp.json())
-    //   .then(console.log())
-    // }
-    
     
 
   render() {

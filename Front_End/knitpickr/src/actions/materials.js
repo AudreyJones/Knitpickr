@@ -28,15 +28,29 @@ export function fetchMaterials() {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify({
-                material
-            })
+            body: JSON.stringify({material})
         })
         .then(resp => resp.json())
         .then(material => dispatch({type:"ADD_MATERIAL", material}))
         .catch(error => console.error(error))
     }
  }
+
+ // Old POST request for data persistence
+    // addMaterial = (name, brand, color, quantity, project_id) => {
+    //   console.log("sent added material to Rails API")
+    //   const data = {name, brand, color, quantity, project_id}
+    //   fetch("http://localhost:3001/materials", {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type' : 'application-json',
+    //     },
+    //     body: JSON.stringify(data)
+    //   })
+    //   .then(resp => resp.json())
+    //   .then(console.log())
+    // }
+    
 
 //  export const setSearch = (searchTerm) => {
 //      return{
