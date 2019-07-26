@@ -15,8 +15,7 @@ export default function projectsReducer(
                 const newState = {...state, projects: action.payload}
                 return newState
                 
-            case 'ADD_PROJECT':
-                        
+            case 'ADD_PROJECT':        
                 const newProject = [...state.projects]
                 newProject.push(action.newProject)
                 return {...state, projects: newProject }

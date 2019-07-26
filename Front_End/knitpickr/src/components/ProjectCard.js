@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react'
 
 
@@ -15,7 +16,7 @@ const ProjectCard = (props) => {
                         <Card.Content extra>
                             Published by: {props.project.user.name}
                         </Card.Content>
-                        
+                        <Link to="/projects/:id"></Link>
                     </Card>
                 
         )

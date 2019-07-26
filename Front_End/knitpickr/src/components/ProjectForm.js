@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchProjects, addProject } from '../actions/projects'
-import { Header, Button, Form } from 'semantic-ui-react'
+import { Header, Button, Form, Checkbox } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
     constructor(props){
@@ -14,12 +14,10 @@ class ProjectForm extends Component {
     }
 
     handleSubmit = (event) => {
-        // debugger
         console.log(this.state)
         event.preventDefault()
         this.props.addProject(this.state)
         //send state back to API
-    //Reset form
         this.setState({
             name: "",
             materials: []
@@ -41,6 +39,7 @@ class ProjectForm extends Component {
     }
 
     render() {
+        console.log('Project Form Props:', this.props)
         return(
             <div>
                 <Form>
@@ -49,6 +48,11 @@ class ProjectForm extends Component {
                     <Form.Field>
                         <input type="text" id="projectName" name="name" placeholder='Project Name' onChange={this.handleChange}/>
                     </Form.Field>
+                    {/* Iterate over all materials and make them available for selection! */}
+                    
+                    {/* <Form.Field>
+                        <Checkbox label={{ children: 'A Material' }} />
+                    </Form.Field> */}
 
                     <Button type="submit" value="Add Material" onChange={this.handleChange}>Add Project</Button>
                     </form>

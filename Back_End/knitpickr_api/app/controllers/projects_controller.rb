@@ -20,16 +20,13 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find_by_id(params[:id])
         render json: @project
-
     end
 
-    def update
+    # def update
+    # end
 
-    end
-
-    def destroy
-
-    end
+    # def destroy
+    # end
 
     private
 

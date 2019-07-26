@@ -19,12 +19,13 @@ class ProjectsContainer extends Component {
    }
 
    handleClick = (e) => { 
+      debugger
       console.log("This Project Card has been clicked!")
       // this.props.ProjectShow()
    }
 
      render() {
-        console.log("Loaded ProjectsContainer:", this)
+        console.log("Loaded ProjectsContainer:", this.props)
         return (
            <Container>  
            <Divider />

@@ -32,10 +32,8 @@ class MaterialsContainer extends Component {
                {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)}
             </Card.Group> 
            </Container>
-            
         )
      }
-
 }
 
 const mapStateToProps = state => {
