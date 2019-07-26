@@ -16,7 +16,7 @@ export default function materialsReducer(
                 return newState
 
             case 'ADD_MATERIAL':
-                debugger
+                // debugger
                 return state
 
             default:

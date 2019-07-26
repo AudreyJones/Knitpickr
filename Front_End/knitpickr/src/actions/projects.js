@@ -15,11 +15,10 @@ export function fetchProjects() {
 }
 
 export const addProject = (project) => {
-    debugger
+    // debugger
     console.log(project)
 //    Destructuring: const (name, materials) = project
    return (dispatch) => {
-       
        return fetch('http://localhost:3001/projects', {
            method: 'POST',
            headers: {
@@ -29,7 +28,7 @@ export const addProject = (project) => {
            body: JSON.stringify({project})
        })
        .then(resp => resp.json())
-       .then(projects => dispatch({type:"ADD_PROJECT", project}))
+       .then(newProject => dispatch({type:"ADD_PROJECT", newProject}))
        .catch(error => console.error(error))
    }
 }

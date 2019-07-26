@@ -6,16 +6,21 @@ class ProjectsController < ApplicationController
         render json: @projects
     end
 
+    def create
+        # byebug
+        @project = Project.new(project_params)
+        # byebug
+        if @project.save
+            render json: @project
+        else
+            render json: {error: 'Did not create new project!'}
+        end
+    end
+
     def show
         @project = Project.find_by_id(params[:id])
         render json: @project
 
-    end
-
-    def create
-        byebug
-        @project = Project.create(project_params)
-        render json: @project
     end
 
     def update
@@ -29,6 +34,6 @@ class ProjectsController < ApplicationController
     private
 
     def project_params
-        params.require(:project).permit(:id, :name, :favorited, :materials)
+        params.require(:project).permit(:id, :name, :favorited, :materials, :user_id)
     end
 end

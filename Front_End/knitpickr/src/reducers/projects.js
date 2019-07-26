@@ -13,11 +13,13 @@ export default function projectsReducer(
                 // state = {loading: false, projects: action.payload}
                 // console.log("Fetching Projects Action:", state)
                 const newState = {...state, projects: action.payload}
-                // debugger
                 return newState
                 
-            // case 'ADDING_PROJECTS':
-            //     return {...state, *new project tacked on*}
+            case 'ADD_PROJECT':
+                        debugger
+                const newProject = [...state.projects]
+                newProject.push(action.newProject)
+                return {...state, projects: newProject }
 
             default:
                 return state

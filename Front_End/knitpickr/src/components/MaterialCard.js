@@ -21,8 +21,6 @@ import { Card, Image } from 'semantic-ui-react'
                         <br />
                         {props.material.quantity} units
                     </Card.Content>
-                        
-                        
                     </Card>
         )
     

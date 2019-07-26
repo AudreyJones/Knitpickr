@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import { fetchProjects } from '../actions/projects'
+import { fetchProjects, addProject } from '../actions/projects'
 import { Header, Button, Form } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
@@ -8,7 +8,8 @@ class ProjectForm extends Component {
         super(props)
         this.state = {
             name:"yarn",
-            materials: []
+            materials: [],
+            user_id: 1
         }
     }
 
@@ -16,6 +17,7 @@ class ProjectForm extends Component {
         // debugger
         console.log(this.state)
         event.preventDefault()
+        this.props.addProject(this.state)
         //send state back to API
     //Reset form
         this.setState({
@@ -47,7 +49,7 @@ class ProjectForm extends Component {
                     <Form.Field>
                         <input type="text" id="projectName" name="name" placeholder='Project Name' onChange={this.handleChange}/>
                     </Form.Field>
-                    
+
                     <Button type="submit" value="Add Material" onChange={this.handleChange}>Add Project</Button>
                     </form>
                 
@@ -57,4 +59,11 @@ class ProjectForm extends Component {
     }
 }
 
-export default connect(null,{fetchProjects})(ProjectForm)
+const mapStateToProps = state => {
+    console.log("mapStateToProps of ProjectForm: ", state)
+    return{
+        all_Users: state.users
+    }
+}
+
+export default connect(mapStateToProps,{fetchProjects, addProject})(ProjectForm)
