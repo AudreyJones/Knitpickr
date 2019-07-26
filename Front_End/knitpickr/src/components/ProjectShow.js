@@ -1,5 +1,6 @@
 import React from 'react';
 import MaterialCard from './MaterialCard';
+import { Container, Divider, Card } from 'semantic-ui-react'; 
 // import ProjectForm from './ProjectForm' Comment in to set up Create a Project Feature
 import MaterialForm from './MaterialForm'
 
@@ -8,13 +9,16 @@ export default function ProjectShow(props) {
     console.log({props})
     // debugger
     return(
-        <div>
+        <Container>
+
         <h1>Project: {props.name}</h1>
         
         <h2>You will need: </h2>
-        <h3>{props.materials.length > 0 ? props.materials.map((material, index) => <MaterialCard key={material.id} index={index} material={material} />): " No materials found!"}</h3>                
-        < MaterialForm addMaterial={props.addMaterial} projectID={props.id} />
-        </div>
+        <Card.Group itemsPerRow={3}>       
+        <div className="ui five stackable cards"></div>
+        {props.materials.length > 0 ? props.materials.map((material, index) => <MaterialCard key={material.id} index={index} material={material} />): " No materials found!"} 
+        </Card.Group>            
+        </Container>
 
         
     )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Container, Divider, Card } from 'semantic-ui-react'; //Style Components
 
 // importing our Action creators and { connect } to mapState and Dispatch to Props!
@@ -18,9 +19,10 @@ class ProjectsContainer extends Component {
       this.props.fetchProjects()
    }
 
-   handleClick = (e) => { 
+   handleClick = (event) => { 
+      // debugger
+      console.log("This Project Card has been clicked!", this)
       debugger
-      console.log("This Project Card has been clicked!")
       // this.props.ProjectShow()
    }
 
@@ -35,7 +37,7 @@ class ProjectsContainer extends Component {
           <br />
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
-                  {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
+                  {this.props.projects.map(project => <Link to={`/projects/${project.id}`}><ProjectCard key={project.id}  project={project} /></Link>)}
             </Card.Group> 
            </Container>
         )
