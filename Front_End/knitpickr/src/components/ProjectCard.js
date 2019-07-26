@@ -9,7 +9,6 @@ const ProjectCard = (props) => {
             <div onClick={props.onClick}>
                     <Card>
                         <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />
-
                         <Card.Content >
                             <Card.Header >
                                 {props.project.name}

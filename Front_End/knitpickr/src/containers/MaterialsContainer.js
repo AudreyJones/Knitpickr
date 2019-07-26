@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Container, Divider, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {fetchMaterials, addMaterial} from '../actions/materials';
@@ -9,13 +10,7 @@ import MaterialShow from '../components/MaterialShow';
 class MaterialsContainer extends Component {
 
    componentDidMount() {
-      // here we are fetching our materials!
       this.props.fetchMaterials()
-   }
-
-   handleClick = (e) => { // Upon click, needs to display the specific material's show page component
-      console.log("This Material Card has been clicked!")
-      // this.props.MaterialShow()
    }
 
      render() {
@@ -29,7 +24,7 @@ class MaterialsContainer extends Component {
             <br />
             <Card.Group itemsPerRow={4}>  
             <div className="ui five stackable cards"></div>
-               {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)}
+               {this.props.materials.map(material => <Link to={`/materials/${material.id}`}><MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} /></Link>)}
             </Card.Group> 
            </Container>
         )

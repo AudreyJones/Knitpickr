@@ -3,10 +3,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 
  const MaterialCard = (props) => {
-
         console.log("MaterialCard is:", props)
-        const dummy = [ "Dummy Description"]
-        // debugger
         return(
              <Card>
                 <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />

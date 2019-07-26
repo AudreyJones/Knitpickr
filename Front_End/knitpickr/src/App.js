@@ -26,8 +26,6 @@ class App extends Component {
         <Link to="/projects"><button>Project Index</button></Link>
         <Link to="/materials"><button>Materials Index</button></Link>
         
-      
-    
 
         <Switch>  
           <Route exact path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />

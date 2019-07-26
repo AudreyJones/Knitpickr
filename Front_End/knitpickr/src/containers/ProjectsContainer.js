@@ -15,15 +15,7 @@ import ProjectShow from '../components/ProjectShow';
 class ProjectsContainer extends Component {
 
    componentDidMount() {
-      // debugger
       this.props.fetchProjects()
-   }
-
-   handleClick = (event) => { 
-      // debugger
-      console.log("This Project Card has been clicked!", this)
-      debugger
-      // this.props.ProjectShow()
    }
 
      render() {
