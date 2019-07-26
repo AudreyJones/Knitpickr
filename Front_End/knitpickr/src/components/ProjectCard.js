@@ -4,10 +4,7 @@ import { Card } from 'semantic-ui-react'
 
  const ProjectCard = (props) => {
 
-    
-
-   
-        console.log("ProjectCard:", props)
+        console.log("ProjectCard is:", props.project)
         
         // debugger
         return(
@@ -15,7 +12,7 @@ import { Card } from 'semantic-ui-react'
                  <table>
                     <Card>
                         <Card.Content header="Header" />
-                        <Card.Content description="Dummy Description" />
+                        <Card.Content description={props} />
                         <Card.Content extra>
                             
                         </Card.Content>

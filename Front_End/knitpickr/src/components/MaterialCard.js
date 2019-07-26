@@ -1,22 +1,26 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card } from 'semantic-ui-react'
 
-class MaterialCard extends Component {
-    render() {
+
+ const MaterialCard = (props) => {
+
+        console.log("MaterialCard is:", props.material)
         
+        // debugger
         return(
              <div>
                  <table>
                     <Card>
-                        <Card.Content header='Material Card' />
+                        <Card.Content header="Header" />
                         <Card.Content description="Description" />
                         <Card.Content extra>
+                            
                         </Card.Content>
                     </Card>
                 </table>
              </div>
         )
-    }
+    
 }
 
 export default MaterialCard

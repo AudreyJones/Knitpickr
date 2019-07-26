@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Grid, Container, Divider } from 'semantic-ui-react'
 import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
@@ -14,17 +14,25 @@ class ProjectsContainer extends Component {
 
    handleClick = (e) => {
       e.preventDefault()
-      console.log("I've been clicked!")
+      console.log("This Project Card has been clicked!")
    }
 
      render() {
-        console.log("Loaded Projects Container", this)
+        console.log("Loaded ProjectsContainer", this)
         
         return (
            <div>
+              
+           <Container textAlign='left'>
            <ProjectForm />
+           </Container>
+               
             <br />
-             {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
+            
+            <Grid columns={3} divided>
+               {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
+            </Grid>
+            
             <ProjectCard />
             
            </div>

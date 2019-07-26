@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchMaterials} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
+import MaterialForm from '../components/MaterialForm'
 
 class MaterialsContainer extends Component {
 
@@ -11,16 +12,22 @@ class MaterialsContainer extends Component {
       this.props.fetchMaterials()
    }
 
+   handleClick = (e) => {
+      e.preventDefault()
+      console.log("This Material Card has been clicked!")
+   }
+
      render() {
-        console.log("Loaded Materials Container")
+        console.log("Loaded MaterialsContainer")
         
       //   debugger
         return (
            <div>
+            <MaterialForm />
          
             <MaterialCard />
           {/* for each material, render a material card */}
-          {/* {this.props.materials.map(material => <li key={material.id}> <Link to={`/materials/${material.id}`}> {material.name} </Link> </li>)} */}
+          {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)}
            
            </div>
             

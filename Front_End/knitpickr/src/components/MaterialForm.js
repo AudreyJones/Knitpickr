@@ -44,6 +44,7 @@ class MaterialForm extends Component {
     render() {
         return(
             <div>
+                <Form>
                 <form onSubmit={this.handleSubmit}>
                     <label>Material Name/Type: 
                     <select value={this.state.name} onChange={this.handleSelectChange} >
@@ -64,8 +65,9 @@ class MaterialForm extends Component {
                     <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
                     </label>
 
-                    <input type="submit" value="Add Material" onChange={this.handleChange}/>
+                    <Button input type="submit" value="Add Material" onChange={this.handleChange}></Button>
                 </form>
+                </Form>
             </div>
         )
     }
