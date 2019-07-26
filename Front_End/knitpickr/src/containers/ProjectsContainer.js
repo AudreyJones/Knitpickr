@@ -21,20 +21,16 @@ class ProjectsContainer extends Component {
         console.log("Loaded ProjectsContainer", this)
         
         return (
-           <div>
-              
+           <div>  
            <Container textAlign='left'>
-           <ProjectForm />
+               <ProjectForm />
            </Container>
-               
-            <br />
+               <br />
             <Container>
-            <Grid columns={3} divided>
-               {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
-            </Grid>
+               <Grid columns={3} divided>
+                  {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
+               </Grid>
             </Container>
-            
-            
            </div>
         )
      }

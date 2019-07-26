@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchMaterials } from '../actions/materials'
-import { Button, Form } from 'semantic-ui-react'
+import { Header, Button, Form, Input, TextArea, Select } from 'semantic-ui-react'
 
 class MaterialForm extends Component {
 
@@ -46,6 +46,7 @@ class MaterialForm extends Component {
             <div>
                 <Form>
                 <form onSubmit={this.handleSubmit}>
+                <Header as='h1'>Add a Material:</Header>
                     <label>Material Name/Type: 
                     <select value={this.state.name} onChange={this.handleSelectChange} >
                         <option value="yarn">yarn</option>
@@ -65,7 +66,7 @@ class MaterialForm extends Component {
                     <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
                     </label>
 
-                    <Button input type="submit" value="Add Material" onChange={this.handleChange}></Button>
+                    <Button input type="submit" value="Add Material" onChange={this.handleChange}>Add Material</Button>
                 </form>
                 </Form>
             </div>

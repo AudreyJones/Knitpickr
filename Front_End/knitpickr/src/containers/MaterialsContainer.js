@@ -29,11 +29,13 @@ class MaterialsContainer extends Component {
             </Container>
             <br />
             <Container>
+            <Grid columns={3} divided>
                <MaterialCard />
+               {/* {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)} */}
+            </Grid>
             </Container>
                
          
-          {/* {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)} */}
            
            </div>
             

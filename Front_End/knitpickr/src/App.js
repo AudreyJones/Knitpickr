@@ -48,7 +48,7 @@ class App extends Component {
       <Router>
       <div>
 
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/"><button>Project Index</button></Link>
         <Link to="/materials"><button>Materials Index</button></Link>
         
 
