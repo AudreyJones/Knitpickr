@@ -15,28 +15,28 @@ export function fetchMaterials() {
             
     }
 }
-//  export const addMaterial = (material) => {
-//     //  Destructuring
-//     const ({name, brand, color, quantity, project_id} = {material})
-//     return (dispatch) => {
-//         return fetch('http://localhost:3001/materials', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Accept: 'application/json'
-//             },
-//             body: JSON.stringify({
-//                 nme,
-//                 brand,
-//                 color,
-//                 quantity
-//             })
-//         })
-//         .then(resp => resp.json())
-//         .then(material => dispatch({type:"ADD_MATERIAL", material}))
-//         .catch(error => console.error(error))
-//     }
-//  }
+
+
+ export const addMaterial = (material) => {
+    //  debugger
+    //  Destructuring
+    // const ({name, brand, color, quantity, project_id} = {material})
+    return (dispatch) => {
+        return fetch('http://localhost:3001/materials', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                material
+            })
+        })
+        .then(resp => resp.json())
+        .then(material => dispatch({type:"ADD_MATERIAL", material}))
+        .catch(error => console.error(error))
+    }
+ }
 
 //  export const setSearch = (searchTerm) => {
 //      return{

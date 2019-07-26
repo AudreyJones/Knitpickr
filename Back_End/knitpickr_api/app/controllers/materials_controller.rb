@@ -2,6 +2,7 @@ class MaterialsController < ApplicationController
     # Take in new materials data from front-end!
     def index
         @materials = Material.all
+        @users = User.all
         render json: @materials
     end
 

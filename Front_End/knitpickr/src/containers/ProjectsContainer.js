@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Container, Divider } from 'semantic-ui-react'
+import ProjectShow from '../components/ProjectShow';
+
 import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
@@ -13,8 +15,11 @@ class ProjectsContainer extends Component {
    }
 
    handleClick = (e) => {
-      e.preventDefault()
+      // e.preventDefault()
       console.log("This Project Card has been clicked!")
+      // debugger
+      // this.props.ProjectShow()
+      
    }
 
      render() {
@@ -28,7 +33,10 @@ class ProjectsContainer extends Component {
                <br />
             <Container>
                <Grid columns={3} divided>
-                  {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
+                  {this.props.projects.map(project => 
+
+                  <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
+
                </Grid>
             </Container>
            </div>

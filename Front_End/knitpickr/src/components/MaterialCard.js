@@ -4,7 +4,7 @@ import { Card } from 'semantic-ui-react'
 
  const MaterialCard = (props) => {
 
-        console.log("MaterialCard is:", props.material)
+        console.log("MaterialCard is:", props)
         
         // debugger
         return(

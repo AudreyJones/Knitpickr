@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Container, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import {fetchMaterials} from '../actions/materials';
+import {fetchMaterials, addMaterial} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
 import MaterialForm from '../components/MaterialForm'
 
@@ -45,25 +45,25 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log('hitting mapStateToProps')
-   console.log(state)
+   console.log('state', state)
    return {
       materials: state.materials
-      // projects: state.projects
+   
    }
  }
  
- const mapDispatchToProps = (dispatch) => {
-    console.log("hitting mapDispatchToProps")
-    console.log(dispatch)
-   return({
-      fetchMaterials: (event) => {dispatch(
-        fetchMaterials(event)
-      )}
-  })
- }
+//  const mapDispatchToProps = (dispatch) => {
+//     console.log("hitting mapDispatchToProps")
+//     console.log(dispatch)
+//    return({
+//       fetchMaterials: (event) => {dispatch(
+//         fetchMaterials(event)
+//       )}
+//   })
+//  }
 
 
  
 
-export default connect((mapStateToProps, mapDispatchToProps), { fetchMaterials })(MaterialsContainer)
+export default connect(mapStateToProps, { fetchMaterials, addMaterial })(MaterialsContainer)
+// export default connect(mapStateToProps, { fetchProjects, addProjects })(ProjectsContainer)
