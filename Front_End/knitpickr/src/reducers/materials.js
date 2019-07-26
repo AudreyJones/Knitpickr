@@ -12,7 +12,7 @@ export default function materialsReducer(
                 return {...state, loading: true}
                 
             case 'FETCHING_MATERIALS':
-                state = {loading: false, materials: action.payload}
+                // state = {loading: false, materials: action.payload}
                 console.log('Fetching Materials', state.materials)
                 // Trying to store user names and id numbers to make accessible in Forms ******* ** *
                 // const all_users = {

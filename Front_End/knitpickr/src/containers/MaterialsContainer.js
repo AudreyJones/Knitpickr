@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Grid, Container, Divider } from 'semantic-ui-react'
+import { Grid, Container, Divider } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {fetchMaterials, addMaterial} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
-import MaterialForm from '../components/MaterialForm'
+import MaterialForm from '../components/MaterialForm';
+import MaterialSHow from '../components/MaterialShow';
 
 class MaterialsContainer extends Component {
-
 
    componentDidMount() {
       // debugger
@@ -14,13 +14,13 @@ class MaterialsContainer extends Component {
    }
 
    handleClick = (e) => {
-      e.preventDefault()
+   // Upon click, needs to display the specific material's show page component
       console.log("This Material Card has been clicked!")
+      // this.props.MaterialShow()
    }
 
      render() {
-        console.log("Loaded MaterialsContainer")
-        
+        console.log("Loaded MaterialsContainer", this)
       //   debugger
         return (
            <div>
@@ -45,10 +45,11 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log('state', state)
+   console.log("state: ", state)
+   // debugger
    return {
-      materials: state.materials
-   
+      // Naming the prop held by the ProjectsContainer and what we're filling it with.
+           materials: state.materials.materials
    }
  }
  

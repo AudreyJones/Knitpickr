@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Grid, Container, Divider } from 'semantic-ui-react'
-import ProjectShow from '../components/ProjectShow';
-
+import { Grid, Container, Divider } from 'semantic-ui-react';
 import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
-import ProjectForm from '../components/ProjectForm'
+import ProjectForm from '../components/ProjectForm';
+import ProjectShow from '../components/ProjectShow';
 
 class ProjectsContainer extends Component {
 
@@ -15,9 +14,8 @@ class ProjectsContainer extends Component {
    }
 
    handleClick = (e) => {
-      // e.preventDefault()
+      // Upon click, needs to display the specific project's show page component
       console.log("This Project Card has been clicked!")
-      // debugger
       // this.props.ProjectShow()
       
    }

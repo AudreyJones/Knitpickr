@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchMaterials, addMaterial } from '../actions/materials'
-import { Header, Button, Form, Input, TextArea, Select } from 'semantic-ui-react'
+import { Header, Button, Form } from 'semantic-ui-react'
 
 class MaterialForm extends Component {
     constructor(props){
