@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import {fetchMaterials, addMaterial} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
 import MaterialForm from '../components/MaterialForm';
-import MaterialShow from '../components/MaterialShow';
 
 class MaterialsContainer extends Component {
 

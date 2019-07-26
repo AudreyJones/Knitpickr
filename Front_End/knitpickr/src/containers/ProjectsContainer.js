@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 // Components to be rendered in or by an event:
 import ProjectCard from '../components/ProjectCard';
 import ProjectForm from '../components/ProjectForm';
-import ProjectShow from '../components/ProjectShow';
 
 
 class ProjectsContainer extends Component {

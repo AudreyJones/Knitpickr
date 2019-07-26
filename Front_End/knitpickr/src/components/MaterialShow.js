@@ -1,8 +1,7 @@
 import React from 'react';
 import MaterialCard from './MaterialCard';
 import { Container, Card } from 'semantic-ui-react';
-// import MaterialForm from './MaterialForm'
-// import ProjectForm from './ProjectForm' Comment in to set up Create a Project Feature
+
 
 export default function MaterialShow(props) {
     console.log('ProjectShow is loaded, here are its props:')
