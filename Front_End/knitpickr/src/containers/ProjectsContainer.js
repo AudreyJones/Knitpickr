@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Container, Divider } from 'semantic-ui-react';
+import { Grid, Container, Divider, Card } from 'semantic-ui-react';
 import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
@@ -24,20 +24,21 @@ class ProjectsContainer extends Component {
         console.log("Loaded ProjectsContainer", this)
         
         return (
-           <div>  
-           <Container textAlign='left'>
+           <Container>  
+           
                <ProjectForm />
-           </Container>
-               <br />
-            <Container>
-               <Grid columns={3} divided>
+          <br />
+          <br />
+               
+            
+            <Card.Group itemsPerRow={4}>       
+               <div className="ui five stackable cards"></div>         
                   {this.props.projects.map(project => 
 
                   <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
-
-               </Grid>
-            </Container>
-           </div>
+                  </Card.Group> 
+           
+           </Container>
         )
      }
 }
