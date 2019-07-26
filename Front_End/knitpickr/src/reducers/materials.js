@@ -4,8 +4,9 @@ export default function materialsReducer(
     // YOUR MATERIALS REDUCER
 
     state= {loading:false, materials:[], users:[]}, action) {
+        console.log("materials reducer:", state)
         switch (action.type) {
-
+            
             case 'LOADING_MATERIALS':
                 console.log('Loading Materials')
                 return {...state, loading: true}
@@ -13,13 +14,20 @@ export default function materialsReducer(
             case 'FETCHING_MATERIALS':
                 state = {loading: false, materials: action.payload}
                 console.log('Fetching Materials', state.materials)
-                const all_users = state.materials.map(material => {
+                // Trying to store user names and id numbers to make accessible in Forms ******* ** *
+                // const all_users = {
+                if (state.users) {
+                    const Thing = state.materials.map(material => {
                     // debugger
-                    return (material.user)
-                })
-
+                        return (material.user)
+                    })
+                    return(state.users: Thing)
+                }  
+                // state.users = all_users
                 // debugger
-                console.log('Fetched User Info:', all_users)
+                // }
+                // debugger
+                // console.log('Fetched User Info:', all_users)
                 
                 return state
 
