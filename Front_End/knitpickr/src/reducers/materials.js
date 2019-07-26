@@ -1,5 +1,3 @@
-import MaterialCard from "../components/MaterialCard";
-
 export default function materialsReducer(
     // YOUR MATERIALS REDUCER
 
@@ -14,23 +12,9 @@ export default function materialsReducer(
             case 'FETCHING_MATERIALS':
                 // state = {loading: false, materials: action.payload}
                 console.log('Fetching Materials', state.materials)
-                
-                // Trying to store user names and id numbers to make accessible in Forms ******* ** *
-                // const all_users = {
-                // if (state.users) {
-                //     const Thing = state.materials.map(material => {
-                //     // debugger
-                //         return (material.user)
-                //     })
-                //     return(state.users: Thing)
-                // }  
-                // state.users = all_users
-                // debugger
-                // }
-                // debugger
-                // console.log('Fetched User Info:', all_users)
-                
-                return state
+                const newState = {...state, materials: action.payload}
+                return newState
+
             case 'ADD_MATERIAL':
                 debugger
                 return state

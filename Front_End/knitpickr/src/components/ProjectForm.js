@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchProjects } from '../actions/projects'
-import { Header, Button, Form, Input, TextArea, Select } from 'semantic-ui-react'
+import { Header, Button, Form } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
     constructor(props){
@@ -42,30 +42,12 @@ class ProjectForm extends Component {
         return(
             <div>
                 <Form>
-                
                     <form onSubmit={this.handleSubmit}>
                     <Header as='h1'>Create a New Project:</Header>
                     <Form.Field>
-                    Material Name/Type: 
-                    <input type="text" id="projectName" name="name" onChange={this.handleChange}/>
+                        <input type="text" id="projectName" name="name" placeholder='Project Name' onChange={this.handleChange}/>
+                    </Form.Field>
                     
-                    </Form.Field>
-
-                    {/* <Form.Field>
-                    <label>Brand
-                    <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>
-                    </label>
-                    </Form.Field>
-
-                    <label>Color
-                    <input type="text" id="materialColor" name="color" onChange={this.handleChange}/>
-                    </label>
-
-                    <label>Quantity
-                    <input type="text" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
-                    </label> */}
-                
-
                     <Button type="submit" value="Add Material" onChange={this.handleChange}>Add Project</Button>
                     </form>
                 

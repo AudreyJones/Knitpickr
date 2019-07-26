@@ -53,27 +53,24 @@ class MaterialForm extends Component {
                 <Form>
                 <form onSubmit={this.handleSubmit}>
                 <Header as='h1'>Add a Material:</Header>
-                    <label>Material Name/Type: 
+                    <label>Material Type: 
+                    <Form.Field>
                     <select value={this.state.name} onChange={this.handleSelectChange} >
                         <option value="yarn">yarn</option>
                         <option value="hook">hook</option>
                     </select>
+                    </Form.Field>
                     </label>
                     <br />
-                    
-
-                    <label>Brand
-                    <input type="text" id="brandName" name="brand" onChange={this.handleChange}/>
-                    </label>
-
-                    <label>Color
-                    <input type="text" id="materialColor" name="color" onChange={this.handleChange}/>
-                    </label>
-
-                    <label>Quantity
-                    <input type="number" id="materialQuantity" name="quantity" onChange={this.handleChange}/>
-                    </label>
-
+                    <Form.Field>
+                    <input type="text" id="brandName" name="brand" placeholder='Brand' onChange={this.handleChange}/>
+                    </Form.Field>
+                    <Form.Field>
+                    <input type="text" id="materialColor" name="color" placeholder='Color' onChange={this.handleChange}/>
+                    </Form.Field>
+                    <Form.Field>
+                    <input type="number" id="materialQuantity" name="quantity" placeholder='Quantity' onChange={this.handleChange}/>
+                    </Form.Field>
                     <Button input type="submit" value="Add Material">Add Material</Button>
                 </form>
                 </Form>

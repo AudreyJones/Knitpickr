@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
   
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
     
     // Using a class based component here because we're accessing DOM refs
    

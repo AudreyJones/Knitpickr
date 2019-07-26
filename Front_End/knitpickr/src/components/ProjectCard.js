@@ -3,9 +3,6 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 const ProjectCard = (props) => {
-        // console.log("ProjectCard is:", props.project)
-        // debugger
-        const dummy = [ "Dummy Description"]
         return(
                     <Card>
                         <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />
@@ -13,8 +10,6 @@ const ProjectCard = (props) => {
                             <Card.Header >
                                 {props.project.name}
                             </Card.Header>
-                            {/* <Card.Description>
-                            </Card.Description> */}
                         </Card.Content>
 
                         <Card.Content extra>

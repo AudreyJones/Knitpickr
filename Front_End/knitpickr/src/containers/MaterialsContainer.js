@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Grid, Container, Divider, Card } from 'semantic-ui-react';
+import { Container, Divider, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {fetchMaterials, addMaterial} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
 import MaterialForm from '../components/MaterialForm';
-import MaterialSHow from '../components/MaterialShow';
+import MaterialShow from '../components/MaterialShow';
 
 class MaterialsContainer extends Component {
 
    componentDidMount() {
-      // debugger
+      // here we are fetching our materials!
       this.props.fetchMaterials()
    }
 
@@ -43,7 +43,8 @@ class MaterialsContainer extends Component {
 const mapStateToProps = state => {
    console.log("state: ", state)
    return {
-      // Naming the prop held by the ProjectsContainer and what we're filling it with.
+      // Reducer updates state with fetched materials and we package those materials in a 
+      // prop held by the ProjectsContainer - materials: filled with project.materials.materials
            materials: state.materials.materials
    }
  }
