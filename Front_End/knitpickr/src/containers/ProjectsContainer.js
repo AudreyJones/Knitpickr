@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Container, Divider, Card } from 'semantic-ui-react';
+import { Container, Divider, Card } from 'semantic-ui-react';
 import {fetchProjects, addProjects} from '../actions/projects';
 import { connect } from 'react-redux';
 import ProjectCard from '../components/ProjectCard';
@@ -25,7 +25,7 @@ class ProjectsContainer extends Component {
         
         return (
            <Container>  
-           
+         <br />
                <ProjectForm />
           <br />
           <br />
