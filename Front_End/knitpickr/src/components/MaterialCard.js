@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
  const MaterialCard = (props) => {
@@ -8,18 +8,22 @@ import { Card } from 'semantic-ui-react'
         const dummy = [ "Dummy Description"]
         // debugger
         return(
-             <div>
-                 <table>
-                    <Card>
-                        <Card.Content header="Header" />
-                        <Card.Content description={dummy} />
-                        <Card.Content extra>
-                            <br />
-                            Extra Content
+             <Card>
+                <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />
+                    <Card.Content >
+                        <Card.Header >
+                             {props.material.color} {props.material.name}
+                            </Card.Header>
                         </Card.Content>
+
+                    <Card.Content extra>
+                        {props.material.brand}
+                        <br />
+                        {props.material.quantity} units
+                    </Card.Content>
+                        
+                        
                     </Card>
-                </table>
-             </div>
         )
     
 }

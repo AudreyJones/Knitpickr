@@ -34,9 +34,7 @@ class ProjectsContainer extends Component {
           <br />
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
-                  {this.props.projects.map(project => 
-
-                  <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
+                  {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick(project.id)}/>)}
             </Card.Group> 
            </Container>
         )

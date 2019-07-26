@@ -19,8 +19,7 @@ class MaterialsContainer extends Component {
    }
 
      render() {
-        console.log("Loaded MaterialsContainer", this)
-      //   debugger
+        console.log("Loaded MaterialsContainer")
         return (
            <Container>
             <Divider/>
@@ -30,8 +29,7 @@ class MaterialsContainer extends Component {
             <br />
             <Card.Group itemsPerRow={4}>  
             <div className="ui five stackable cards"></div>
-               <MaterialCard />
-               {/* {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)} */}
+               {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)}
             </Card.Group> 
            </Container>
             
@@ -41,7 +39,7 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log("state: ", state)
+   console.log("mapStateToProps of MaterialsContainer: ", state)
    return {
       // Reducer updates state with fetched materials and we package those materials in a 
       // prop held by the ProjectsContainer - materials: filled with project.materials.materials

@@ -80,7 +80,7 @@ class MaterialForm extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("state =", state)
+    console.log("mapStateToProps of MaterialForm: ", state)
     return{
         all_Users: state.users
     }
