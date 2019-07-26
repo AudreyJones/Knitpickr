@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Container, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import {fetchMaterials} from '../actions/materials';
 import MaterialCard from '../components/MaterialCard';
@@ -23,11 +24,16 @@ class MaterialsContainer extends Component {
       //   debugger
         return (
            <div>
-            <MaterialForm />
+            <Container textAlign='left'>
+               <MaterialForm />
+            </Container>
+            <br />
+            <Container>
+               <MaterialCard />
+            </Container>
+               
          
-            <MaterialCard />
-          {/* for each material, render a material card */}
-          {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)}
+          {/* {this.props.materials.map(material => <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} onClick={this.handleClick}/>)} */}
            
            </div>
             

@@ -28,12 +28,12 @@ class ProjectsContainer extends Component {
            </Container>
                
             <br />
-            
+            <Container>
             <Grid columns={3} divided>
                {this.props.projects.map(project => <ProjectCard key={project.id} to={`/projects/${project.id}`} project={project} onClick={this.handleClick}/>)}
             </Grid>
+            </Container>
             
-            <ProjectCard />
             
            </div>
         )
