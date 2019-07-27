@@ -4,6 +4,9 @@ import { Card, Image } from 'semantic-ui-react'
 
 const ProjectCard = (props) => {
     // console.log("Project Card:", props)
+    
+
+
         return(
             <div>
                     <Card>

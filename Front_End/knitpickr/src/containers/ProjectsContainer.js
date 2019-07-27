@@ -28,9 +28,9 @@ class ProjectsContainer extends Component {
           <br />
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
-                   {this.props.projects.map(project => 
-                     <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>  
-                  <ProjectCard key={project.id}  project={project} /></Link> 
+                  {this.props.projects.map(project => 
+                     <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>
+                        <ProjectCard key={project.id}  project={project} /></Link> 
                   )}
             </Card.Group> 
            </Container>
