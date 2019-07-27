@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
+
 // importing our various Containers and Presentational components...
 import ProjectsContainer from './containers/ProjectsContainer';
 import MaterialsContainer from './containers/MaterialsContainer';
@@ -25,7 +26,6 @@ class App extends Component {
         <Link to="/projects"><button>Project Index</button></Link>
         <Link to="/materials"><button>Materials Index</button></Link>
         
-
         <Switch>  
           <Route exact path="/materials/:id" component={MaterialShow}/>
           <Route exact path="/projects/:id" component={ProjectShow}/>

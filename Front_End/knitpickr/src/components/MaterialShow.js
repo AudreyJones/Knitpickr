@@ -1,6 +1,5 @@
 import React from 'react';
-import MaterialCard from './MaterialCard';
-import { Container, Card, Divider } from 'semantic-ui-react';
+import { Container, Divider } from 'semantic-ui-react';
 
 
 export default function MaterialShow(props) {
