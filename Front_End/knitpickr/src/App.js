@@ -17,23 +17,20 @@ class App extends Component {
     
 
   render() {
-    console.log("App.js Loaded!")
+    console.log("App.js state:", this)
     // debugger
     return (
       <Router>
       <div>
-      
         <Link to="/projects"><button>Project Index</button></Link>
         <Link to="/materials"><button>Materials Index</button></Link>
         
 
         <Switch>  
-          <Route exact path="/materials/:id" render = {({ match }) => (<MaterialShow {...this.state.materials.find(m => m.id === parseInt(match.params.id))} />)} />
-          <Route exact path="/projects/:id" render = {({ match }) => (<ProjectShow addMaterial = {this.addMaterial} {...this.state.projects.find(p => p.id === parseInt(match.params.id))} />)} />
+          <Route exact path="/materials/:id" component={MaterialShow}/>
+          <Route exact path="/projects/:id" component={ProjectShow}/>
           <Route exact path="/materials" component = {MaterialsContainer}/>
           <Route exact path="/projects" component = {ProjectsContainer}/>
-          {/* <Route exact path="/" component={Login} /> */}
-          
         </Switch>
       
       </div> 

@@ -4,9 +4,8 @@ import { Container, Card } from 'semantic-ui-react';
 
 
 export default function ProjectShow(props) {
-    console.log('ProjectShow is loaded, here are its props:')
-    console.log({props})
-    // debugger
+    console.log('ProjectShow is loaded, here are its props:', props)
+    
     return(
         <Container>
 

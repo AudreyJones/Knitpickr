@@ -5,17 +5,17 @@ export default function projectsReducer(
         switch (action.type) {
 
             case 'LOADING_PROJECTS':
-                console.log('Loading Projects REDUCER')
+                console.log('REDUCER: Loading_Projects')
                 return {...state, loading: true}
                 
             case 'FETCHING_PROJECTS':
                 // debugger
-                // state = {loading: false, projects: action.payload}
-                // console.log("Fetching Projects Action:", state)
+                console.log('REDUCER: Fetching_Projects')
                 const newState = {...state, projects: action.payload}
                 return newState
                 
-            case 'ADD_PROJECT':        
+            case 'ADD_PROJECT':   
+                console.log('REDUCER: Add_Project')     
                 const newProject = [...state.projects]
                 newProject.push(action.newProject)
                 return {...state, projects: newProject }

@@ -23,7 +23,7 @@ class MaterialsContainer extends Component {
             <br />
             <Card.Group itemsPerRow={4}>  
             <div className="ui five stackable cards"></div>
-               {this.props.materials.map(material => <Link to={`/materials/${material.id}`}><MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} /></Link>)}
+               {this.props.materials.map(material => <Link to={{pathname:`/materials/${material.id}`, state:{material:material}}}> <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} /></Link>)}
             </Card.Group> 
            </Container>
         )
@@ -33,8 +33,7 @@ class MaterialsContainer extends Component {
 const mapStateToProps = state => {
    console.log("mapStateToProps of MaterialsContainer: ", state)
    return {
-      // Reducer updates state with fetched materials and we package those materials in a 
-      // prop held by the ProjectsContainer - materials: filled with project.materials.materials
+      // Reducer updates state with fetched materials and we package those materials in a prop held by the ProjectsContainer - materials: filled with project.materials.materials
            materials: state.materials.materials
    }
  }

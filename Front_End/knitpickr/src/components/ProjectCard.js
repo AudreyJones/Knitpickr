@@ -3,9 +3,9 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 const ProjectCard = (props) => {
-    console.log(props)
+    // console.log("Project Card:", props)
         return(
-            <div onClick={props.onClick}>
+            <div>
                     <Card>
                         <Image src="https://www.frlib.org/site-assets/images/images/Knittingballsofyarm.jpg/" />
                         <Card.Content >
