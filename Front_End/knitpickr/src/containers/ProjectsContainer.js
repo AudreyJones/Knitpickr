@@ -24,8 +24,9 @@ class ProjectsContainer extends Component {
            <Divider />
             <ProjectForm />
             <Divider />
+          
           <br />
-          <br />
+          
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
                   {this.props.projects.map(project => 
@@ -42,7 +43,7 @@ const mapStateToProps = state => {
    console.log("mapStateToProps of ProjectContainer: ", state)
    // debugger
    return {
-      // Naming the prop held by the ProjectsContainer and what we're filling it with.
+   // Naming the prop held by the ProjectsContainer and what we're filling it with.
            projects: state.projects.projects
    }
  }

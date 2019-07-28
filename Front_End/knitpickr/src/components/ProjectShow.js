@@ -5,6 +5,7 @@ import { Container, Card, Divider } from 'semantic-ui-react';
 
 export default function ProjectShow(props) {
     console.log('ProjectShow is loaded, here are its props:', props.location.state.project)
+    console.log("ProjectShow props: ", props)
     
     const project = props.location.state.project
 

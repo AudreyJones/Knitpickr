@@ -52,14 +52,14 @@ class ProjectForm extends Component {
         //       materials,
         //       project: '',
         //     }})
-            debugger
+                                        // debugger
         }
 
     handleChange = (event) => {
         
         console.log("handleChange state: ", this.state)
         console.log("handleChange props: ", this.props)
-        debugger
+        // debugger
         this.setState({[event.target.name]: event.target.value})
     }
 
