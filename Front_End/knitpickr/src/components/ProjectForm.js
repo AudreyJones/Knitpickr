@@ -40,7 +40,7 @@ class ProjectForm extends Component {
     render() {
         console.log('Project Form Props:', this.props)
         const allMaterials = this.props.all_Materials.materials
-        const materialColorName = "{material.color} {material.name}"
+        
         return(
             <div>
                 <Form>
@@ -53,9 +53,8 @@ class ProjectForm extends Component {
                     <Form.Field>
                     {allMaterials.map(material =>
                         <div class="ui checkbox">
-                        <Checkbox label={materialColorName} />
-                            {/* <input type="checkbox" class="hidden"  tabindex="0"/> */}
-                            {/* <label>{material.color} {material.name}</label> */}
+                        <Checkbox label={`${material.color} ${material.name}`} />
+                            <input type="checkbox" class="hidden"  tabindex="0"/>
                         </div>
                     )}
                     </Form.Field>
