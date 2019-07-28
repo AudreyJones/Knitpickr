@@ -15,9 +15,9 @@ export function fetchProjects() {
 }
 
 export const addProject = (project) => {
-    // debugger
-    console.log(project)
-//    Destructuring: const (name, materials) = project
+    debugger
+    console.log("project: ", project)
+    // var (name, materials) = project
    return (dispatch) => {
        return fetch('http://localhost:3001/projects', {
            method: 'POST',
@@ -25,7 +25,8 @@ export const addProject = (project) => {
                'Content-Type': 'application/json',
                Accept: 'application/json'
            },
-           body: JSON.stringify({project})
+           body: JSON.stringify({
+               project: project})
        })
        .then(resp => resp.json())
        .then(newProject => dispatch({type:"ADD_PROJECT", newProject}))

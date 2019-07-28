@@ -20,9 +20,10 @@ class ProjectForm extends Component {
      }
 
     handleSubmit = (event) => {
-        console.log(this.state)
+        console.log("handleSubmit", this.state) //Project name is here, but not the materials.
         event.preventDefault()
         debugger
+        // passing the state of the form's input to #addProject (available in the form's props), to 
         this.props.addProject(this.state)
         //send state back to API
         this.setState({
@@ -31,11 +32,38 @@ class ProjectForm extends Component {
         })
     }
 
-    handleChange= (event) => {
-        event.preventDefault()
-        console.log(event)
+    handleClick = (event) => {
+        // Once something is checked, push it into the materials array for this project that is to be created!
+        // const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const name = target.name;
+
+        console.log(event.target)
+        console.log("handleChecked state: ", this.state)
+        console.log("handleChecked props: ", this.props)
+        
+        //   debugger
+          this.state.materials.push(event.target.name)
+        //   this.setState(state => {
+        //       debugger
+        //     const materials = state.materials.push(event.target.name);
+      
+        //     return {
+        //       materials,
+        //       project: '',
+        //     }})
+            debugger
+        }
+
+    handleChange = (event) => {
+        
+        console.log("handleChange state: ", this.state)
+        console.log("handleChange props: ", this.props)
+        debugger
         this.setState({[event.target.name]: event.target.value})
     }
+
+    
 
     render() {
         console.log('Project Form Props:', this.props)
@@ -51,16 +79,16 @@ class ProjectForm extends Component {
                     </Form.Field>
                     {/* Iterate over all materials and make them available for selection! */}
                     <Form.Field>
+                        Select your materials:
                     <Grid columns={4} divided>
                         <Grid.Column >
                     {allMaterials.map(material =>
                         <div class="ui checkbox">
                         <Checkbox label={`${material.color} ${material.name}`} />
-                            <input type="checkbox" class="hidden"  tabindex="0" onChange={this.handleChange}/>
+                            <input id="materialName" name={`${material.color} ${material.name}`}type="checkbox" checked={this.state.active} onClick={this.handleClick}/>
                         </div>
                     )}
                         </Grid.Column>
-                        
                     </Grid>
                     </Form.Field>
                     <Button type="submit">Add Project</Button>
