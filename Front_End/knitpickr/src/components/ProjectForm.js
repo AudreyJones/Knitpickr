@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import { fetchProjects, addProject } from '../actions/projects'
 import { fetchMaterials } from '../actions/materials'
-import { Header, Button, Form, Checkbox } from 'semantic-ui-react'
+import { Header, Button, Form, Checkbox, Grid } from 'semantic-ui-react'
 
 class ProjectForm extends Component {
     
@@ -51,14 +51,19 @@ class ProjectForm extends Component {
                     </Form.Field>
                     {/* Iterate over all materials and make them available for selection! */}
                     <Form.Field>
+                    <Grid columns={4} divided>
+                        <Grid.Column >
                     {allMaterials.map(material =>
                         <div class="ui checkbox">
                         <Checkbox label={`${material.color} ${material.name}`} />
-                            <input type="checkbox" class="hidden"  tabindex="0"/>
+                            <input type="checkbox" class="hidden"  tabindex="0" onChange={this.handleChange}/>
                         </div>
                     )}
+                        </Grid.Column>
+                        
+                    </Grid>
                     </Form.Field>
-                    <Button type="submit" value="Add Material" >Add Project</Button>
+                    <Button type="submit">Add Project</Button>
                     </form>
                 
                 </Form>
