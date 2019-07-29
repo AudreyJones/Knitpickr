@@ -28,31 +28,21 @@ class ProjectForm extends Component {
         //send state back to API
         this.setState({
             name: "",
-            materials: []
+            materials: [],
+            user_id: 1
         })
     }
 
-    handleClick = (event) => {
+    handleCheckBoxChange = (event) => {
         // Once something is checked, push it into the materials array for this project that is to be created!
-        // const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
-
+        debugger
         console.log(event.target)
         console.log("handleChecked state: ", this.state)
         console.log("handleChecked props: ", this.props)
-        
+        const materialsList = [...this.state.materials]
         //   debugger
-          this.state.materials.push(event.target.name)
-        //   this.setState(state => {
-        //       debugger
-        //     const materials = state.materials.push(event.target.name);
-      
-        //     return {
-        //       materials,
-        //       project: '',
-        //     }})
-                                        // debugger
+          materialsList.push(event.target.value)
+          this.setState({materials: materialsList})
         }
 
     handleChange = (event) => {
@@ -67,6 +57,7 @@ class ProjectForm extends Component {
 
     render() {
         console.log('Project Form Props:', this.props)
+
         const allMaterials = this.props.all_Materials.materials
         
         return(
@@ -85,7 +76,7 @@ class ProjectForm extends Component {
                     {allMaterials.map(material =>
                         <div class="ui checkbox">
                         <Checkbox label={`${material.color} ${material.name}`} />
-                            <input id="materialName" name={`${material.color} ${material.name}`}type="checkbox" checked={this.state.active} onClick={this.handleClick}/>
+                            <input id="materialName" name={`${material.color} ${material.name}`} type="checkbox" value={`${material.color} ${material.name}`} onChange={this.handleCheckBoxChange}/>
                         </div>
                     )}
                         </Grid.Column>

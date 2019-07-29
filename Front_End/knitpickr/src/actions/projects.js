@@ -16,7 +16,7 @@ export function fetchProjects() {
 
 export const addProject = (project) => {
     debugger
-    console.log("project: ", project)
+    // console.log("project: ", project)
     // var (name, materials) = project
    return (dispatch) => {
        return fetch('http://localhost:3001/projects', {
