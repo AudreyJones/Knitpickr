@@ -18,7 +18,10 @@ export default function materialsReducer(
             case 'ADD_MATERIAL':
                 // debugger
                 console.log('Reducer: Add_Material')
-                return state
+                // Using concat because we're making a new array that is a modified version of the original anyways 
+                const newMaterials = [...state.materials].concat(action.material)
+                return {...state, materials: newMaterials}
+                
 
             default:
                 return state

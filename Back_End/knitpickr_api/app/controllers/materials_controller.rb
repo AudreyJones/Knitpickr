@@ -2,15 +2,16 @@ class MaterialsController < ApplicationController
     # Take in new materials data from front-end!
     def index
         @materials = Material.all
-        @users = User.all
+        # @users = User.all
         render json: @materials
     end
 
     def create
         # byebug
         @material = Material.new(materials_params)
+        
         if @material.save
-            render json: @material
+            render json: @material, serializer: NewMaterialSerializer
         else
             render json: {error: 'Did not create new material!'}
         end
@@ -38,6 +39,6 @@ class MaterialsController < ApplicationController
     private
 
     def materials_params
-        params.require(:material).permit(:id, :name, :quantity, :color, :brand, :favorited, :user_id)
+        params.require(:material).permit(:id, :name, :quantity, :color, :brand)
     end
 end
