@@ -14,7 +14,7 @@ class MaterialsContainer extends Component {
 
      render() {
       //   console.log("Loaded MaterialsContainer props:", this.props)
-        debugger
+      //   debugger
         return (
            <Container>
             <Divider/>
@@ -32,7 +32,7 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   debugger;
+   // debugger;
    // console.log("mapStateToProps of MaterialsContainer: ", state)
    return {
       // Reducer updates state with fetched materials and we package those materials in a prop held by the ProjectsContainer - materials: filled with project.materials.materials
