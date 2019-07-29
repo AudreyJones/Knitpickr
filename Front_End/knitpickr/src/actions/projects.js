@@ -15,7 +15,7 @@ export function fetchProjects() {
 }
 
 export const addProject = (project) => {
-    debugger
+    // debugger
     // console.log("project: ", project)
     // var (name, materials) = project
    return (dispatch) => {

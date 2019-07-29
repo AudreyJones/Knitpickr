@@ -13,7 +13,8 @@ class MaterialsContainer extends Component {
    }
 
      render() {
-        console.log("Loaded MaterialsContainer")
+      //   console.log("Loaded MaterialsContainer props:", this.props)
+        debugger
         return (
            <Container>
             <Divider/>
@@ -31,13 +32,13 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log("mapStateToProps of MaterialsContainer: ", state)
+   debugger;
+   // console.log("mapStateToProps of MaterialsContainer: ", state)
    return {
       // Reducer updates state with fetched materials and we package those materials in a prop held by the ProjectsContainer - materials: filled with project.materials.materials
            materials: state.materials.materials
    }
  }
- 
 //  const mapDispatchToProps = (dispatch) => {
 //     console.log("hitting mapDispatchToProps")
 //     console.log(dispatch)

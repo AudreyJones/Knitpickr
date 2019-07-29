@@ -2,8 +2,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       t.string :name
-      t.text :fav_projects
-      t.text :fav_materials
+      t.integer :project_id
+      
 
       t.timestamps
     end
