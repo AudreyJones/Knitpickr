@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Making our Materials
-User.destroy_all
-Material.destroy_all
-Project.destroy_all
+# Resetting database upon each re-seeding:
+# User.destroy_all
+# Material.destroy_all
+# Project.destroy_all
 
 # Making our Users
 audrey = User.create(name: 'Audrey')
@@ -17,40 +17,44 @@ emily = User.create(name: 'Emily')
 kevin = User.create(name: 'Kevin')
 nikki = User.create(name: 'Nikki')
 
-# Need to associate materials and projects with Users!
-
+# Users have many projects
+# Making our Projects -- and giving each to a user.
+project1 = Project.create(name: 'Christmas Stocking',  user_id: 2)
+project2 = Project.create(name: 'Spring Wreath', user_id: 1)
+project3 = Project.create(name: 'Fall Scarf', user_id: 4)
+project4 = Project.create(name: 'Pumpkin Amigurumi', user_id: 2)
+project5 = Project.create(name: 'Squid Amigurumi', user_id: 1)
+project6 = Project.create(name: 'Coral Installation', user_id: 3)
 
 # Making our materials
-material1 = Material.create(name: 'yarn', quantity: 8, color: 'red', brand:'Red Heart Yarn', favorited: false, user_id: 2)
-material2 = Material.create(name: 'yarn', quantity: 4, color: 'mint', brand:'Lily Sugar n Cream', favorited: true, user_id: 1)
+material1 = Material.create(name: 'yarn', quantity: 8, color: 'red', brand:'Red Heart Yarn')
+material2 = Material.create(name: 'yarn', quantity: 4, color: 'mint', brand:'Lily Sugar n Cream')
 
-material3 = Material.create(name: 'hook', quantity: 1, color: 'silver - size J', brand:'Susan Bates Silvalume', favorited: false, user_id: 2)
-material4 = Material.create(name: 'hook', quantity: 1, color: 'wood - size H', brand:'ChiaoGoo', favorited: true, user_id: 1)
+material3 = Material.create(name: 'hook', quantity: 1, color: 'silver - size J', brand:'Susan Bates Silvalume')
+material4 = Material.create(name: 'hook', quantity: 1, color: 'wood - size H', brand:'ChiaoGoo')
 
-material5 = Material.create(name: 'yarn', quantity: 5, color: 'gray', brand:'Lux Adorna', favorited: true, user_id: 2)
-material6 = Material.create(name: 'yarn', quantity: 3, color: 'purple', brand:"Bernat's Blanket Yarn", favorited: false, user_id: 3)
-material7 = Material.create(name: 'yarn', quantity: 9, color: 'pink', brand:'Simply Soft', favorited: false, user_id: 4)
-material8 = Material.create(name: 'yarn', quantity: 4, color: 'green', brand:"Caron's Cakes", favorited: true, user_id: 3)
-material9 = Material.create(name: 'yarn', quantity: 11, color: 'yellow', brand:'Koigu', favorited: true, user_id: 2)
-material10 = Material.create(name: 'yarn', quantity: 2, color: 'black', brand:'Paintbox', favorited: false, user_id: 3)
-material11 = Material.create(name: 'yarn', quantity: 6, color: 'orange', brand:'ChiaoGoo', favorited: false, user_id: 4)
+material5 = Material.create(name: 'yarn', quantity: 5, color: 'gray', brand:'Lux Adorna')
+material6 = Material.create(name: 'yarn', quantity: 3, color: 'purple', brand:"Bernat's Blanket Yarn")
+material7 = Material.create(name: 'yarn', quantity: 9, color: 'pink', brand:'Simply Soft')
+material8 = Material.create(name: 'yarn', quantity: 4, color: 'green', brand:"Caron's Cakes")
+material9 = Material.create(name: 'yarn', quantity: 11, color: 'yellow', brand:'Koigu')
+material10 = Material.create(name: 'yarn', quantity: 2, color: 'black', brand:'Paintbox')
+material11 = Material.create(name: 'yarn', quantity: 6, color: 'orange', brand:'ChiaoGoo')
 
-# Making our Projects -- and giving each to a user.
-project1 = Project.create(name: 'Christmas Stocking', favorited: false,  user_id: 2)
-project2 = Project.create(name: 'Spring Wreath', favorited: true, user_id: 1)
-project3 = Project.create(name: 'Deer Lovie', favorited: false, user_id: 3)
-project4 = Project.create(name: 'Baby Blanket', favorited: false, user_id: 3)
-project5 = Project.create(name: 'Accent Pillowcase', favorited: false, user_id: 4)
-project6 = Project.create(name: 'Dress', favorited: true, user_id: 4)
-project7 = Project.create(name: 'Fall Scarf', favorited: false, user_id: 4)
-project8 = Project.create(name: 'Pumpkin Amigurumi', favorited: true, user_id: 2)
-project9 = Project.create(name: 'Squid Amigurumi', favorited: true, user_id: 1)
-project10 = Project.create(name: 'Coral Installation', favorited: true, user_id: 1)
+project1.materials << [material1, material2, material3]
+project1.save
 
-# Users have a favorited_projects array
-audrey.fav_projects << project9
-audrey.fav_projects << project2
+project2.materials << [material2, material7, material4]
+project2.save
 
-# Users have favorite materials
-audrey.fav_materials << material2
-audrey.fav_materials << material4
+project3.materials << [material11, material1, material3]
+project3.save
+
+project4.materials << [material11, material8, material3]
+project4.save
+
+project5.materials << [material2, material10, material4]
+project5.save
+
+project6.materials << [material7, material6, material4]
+project6.save

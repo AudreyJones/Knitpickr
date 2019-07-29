@@ -15,6 +15,7 @@ export default function projectsReducer(
                 return newState
                 
             case 'ADD_PROJECT':   
+            debugger
                 console.log('REDUCER: Add_Project')     
                 const newProject = [...state.projects]
                 newProject.push(action.newProject)

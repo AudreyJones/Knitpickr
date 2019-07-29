@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+
     def index
         @projects = Project.all
         # conn = Faraday::Connection.new 'RAVELRY_API'
@@ -7,11 +8,11 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        # byebug
         @project = Project.new(project_params)
-
-        byebug
+        @project.material_ids = params[:project][:material_ids].map{|id| id.to_i}
+        # byebug
         if @project.save
+            # byebug
             render json: @project
         else
             render json: {error: 'Did not create new project!'}
@@ -23,15 +24,9 @@ class ProjectsController < ApplicationController
         render json: @project
     end
 
-    # def update
-    # end
-
-    # def destroy
-    # end
-
     private
 
     def project_params
-        params.require(:project, :materials).permit(:name, :favorited, :materials, :user_id, :active)
+        params.require(:project).permit(:name, :user_id, :active)
     end
 end
