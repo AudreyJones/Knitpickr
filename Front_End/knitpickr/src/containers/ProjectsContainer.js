@@ -18,7 +18,7 @@ class ProjectsContainer extends Component {
    }
 
      render() {
-        console.log("Loaded ProjectsContainer:", this.props)
+      //   console.log("Loaded ProjectsContainer:", this.props)
         return (
            <Container>  
            <Divider />
@@ -40,7 +40,7 @@ class ProjectsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-   console.log("mapStateToProps of ProjectContainer: ", state)
+   // console.log("mapStateToProps of ProjectContainer: ", state)
    // debugger
    return {
    // Naming the prop held by the ProjectsContainer and what we're filling it with.

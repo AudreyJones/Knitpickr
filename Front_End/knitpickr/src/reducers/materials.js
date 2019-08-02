@@ -6,12 +6,14 @@ export default function materialsReducer(
         switch (action.type) {
             
             case 'LOADING_MATERIALS':
-                console.log('Reducer: Loading_Materials')
+                //console.log('Reducer: Loading_Materials')
+                // console.log("f")
                 return {...state, loading: true}
                 
             case 'FETCHING_MATERIALS':
                 // state = {loading: false, materials: action.payload}
-                console.log('Reducer: Fetching_Materials')
+                //console.log('Reducer: Fetching_Materials')
+                // console.log("g")
                 const newState = {...state, materials: action.payload}
                 return newState
 

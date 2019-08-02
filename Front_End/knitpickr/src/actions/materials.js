@@ -1,6 +1,7 @@
 export function fetchMaterials() {
 //  Your MATERIALS ACTION CREATOR
-    console.log("Hitting fetchMaterials")
+    // console.log("Hitting fetchMaterials")
+    // console.log("c")
     return (dispatch) => {
         // First action sent immediately after promise is returned
         dispatch({type: 'LOADING_MATERIALS'})
@@ -8,11 +9,12 @@ export function fetchMaterials() {
             .then(r => r.json())
             .catch(error => console.log(error))
         // Second action sent after promise is resolved
-            .then(materials => dispatch({ type: 'FETCHING_MATERIALS', payload: materials})
-                // console.log('Promise resolved -- Actually Fetching Materials')
-            )
-            
+            .then(materials => {
+                dispatch({ type: 'FETCHING_MATERIALS', payload: materials})
+                // console.log("d")
+            })
     }
+    // console.log("e")
 }
 
 
