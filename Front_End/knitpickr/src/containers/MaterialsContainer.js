@@ -15,8 +15,9 @@ class MaterialsContainer extends Component {
       this.state = {
          animation: 'horizontal flip',
          duration: 5000, visible: true,
-         isClicked: false 
+         isClicked: false
       }
+      
   }
    
    componentDidMount() {
@@ -26,13 +27,6 @@ class MaterialsContainer extends Component {
    handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
    handleVisibility = () => this.setState(prevState => ({ visible: !prevState.visible }))
-
-//    handleCardFlip = (e, data) => {
-//    console.log("Flip!")
-//     const cards = this.state.cards
-//     cards[e.target.id].flipped = true
-//     this.setState({ cards })
-//   }
 
    render() { //   console.log("Loaded MaterialsContainer props:", this.props)
       const { animation, duration, visible } = this.state
@@ -46,7 +40,7 @@ class MaterialsContainer extends Component {
                      <Transition.Group animation={this.state.animation} duration={this.state.duration} >
                         {visible && this.props.materials.map(material => 
                               
-                              <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material}  />
+                              <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />
                         )}
                      </Transition.Group>
                   </div>  

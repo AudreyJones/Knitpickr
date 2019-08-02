@@ -10,7 +10,9 @@ import CardBack from './CardBack'
     constructor() {
         super()
             this.state = {
-               isFlipped: false
+               isFlipped: false,
+               comment: "",
+               comments:[]
             }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -29,7 +31,7 @@ import CardBack from './CardBack'
         const cardState = this.state.isFlipped
         let cardFace;
         if (cardState === true) {
-            cardFace = <CardBack material={this.props.material}/>
+            cardFace = <CardBack material={this.props.material} comments={this.state}/>
         } else {
             cardFace = <CardFront material={this.props.material}/>
         }
