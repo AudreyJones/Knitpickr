@@ -31,11 +31,9 @@ import CardBack from './CardBack'
 
     handleSubmit = (event) => {
         event.preventDefault();
-        debugger
-        console.log(this.state)
-        console.log(event.target.value)
-        debugger
-        // this.setState({...this.state, ...this.state.comments.push(event.target.value)});
+        debugger //Before comments array change
+        this.setState({...this.state, ...this.state.comments.push(this.state.comment)});
+        debugger //After comments array change
       }
 
     render() {
