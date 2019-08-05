@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, Form, Button } from 'semantic-ui-react'
+import { Card, Form, Button, Transition } from 'semantic-ui-react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
 // import ReactCardFlip from 'react-card-flip';
@@ -10,18 +10,24 @@ import CardBack from './CardBack'
     constructor() {
         super()
             this.state = {
+                animation: 'horizontal flip',
+                duration: 50000, 
+                visible: true,
+                isClicked: false,
                isFlipped: false,
                comment: "",
                comments:[]
             }
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(e) {
-            e.preventDefault();
+    handleClick = (event) => {
+            event.preventDefault();
             console.log("Current state: ", this.state)
             this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
     }
+
+    handleVisibility = () => this.setState(prevState => ({ visible: !prevState.visible }))
 
     handleChange = (event) => {
         this.setState({
@@ -43,22 +49,25 @@ import CardBack from './CardBack'
         // console.log("MaterialCard state:", this.state); 
         // console.log("MaterialCard props:", this.props);
         // debugger
+        // const { animation, duration, visible } = this.state
         
         const cardState = this.state.isFlipped
         let cardFace;
+        
         if (cardState === true) {
             cardFace = <CardBack material={this.props.material} comments={this.state}/>
         } else {
             cardFace = <CardFront material={this.props.material}/>
-            
         }
 
         return(
             <React.Fragment>
+            <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
             <Card onClick={this.handleClick}>
                 {cardFace}
-                
             </Card>
+            </Transition.Group>
+
             <Form onSubmit={this.handleSubmit}>
                 <Form.Field>
                     <label>Care to Comment?</label>
