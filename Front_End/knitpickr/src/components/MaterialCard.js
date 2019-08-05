@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Card, Form, Button, Transition } from 'semantic-ui-react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
-// import ReactCardFlip from 'react-card-flip';
+import ReactCardFlip from 'react-card-flip';
 
 
 // Class component, because it needs to hold state of whether or not this particular card has been Flipped or not!
@@ -62,11 +62,25 @@ import CardBack from './CardBack'
 
         return(
             <React.Fragment>
+
             <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
             <Card onClick={this.handleClick}>
                 {cardFace}
             </Card>
             </Transition.Group>
+
+            {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+            <CardFront key="front">
+            This is the front of the card.
+            <button onClick={this.handleClick}>Click to flip</button>
+            </CardFront>
+    
+            <CardBack key="back">
+            This is the back of the card.
+            <button onClick={this.handleClick}>Click to flip</button>
+            </CardBack>
+            </ReactCardFlip> */}
+            
 
             <Form onSubmit={this.handleSubmit}>
                 <Form.Field>

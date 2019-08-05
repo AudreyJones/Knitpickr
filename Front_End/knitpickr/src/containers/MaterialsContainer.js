@@ -26,8 +26,6 @@ class MaterialsContainer extends Component {
 
    // handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-   
-
    render() { //   console.log("Loaded MaterialsContainer props:", this.props)
       return (
            <Container>
