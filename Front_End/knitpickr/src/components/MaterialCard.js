@@ -31,12 +31,12 @@ import CardBack from './CardBack'
 
     handleSubmit = (event) => {
         event.preventDefault();
-        debugger //Before comments array change
+        // debugger //Before comments array change
         this.setState({...this.state, ...this.state.comments.push(this.state.comment)});
-        debugger //After comments array change
+        // debugger //After comments array change
         //Need to reset form input field after state update!!
         this.setState({comment:""})
-        debugger //After resetting form field
+        // debugger //After resetting form field
       }
 
     render() {
