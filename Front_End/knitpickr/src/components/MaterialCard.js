@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, Form, Button, Grid } from 'semantic-ui-react'
+import { Card, Form, Button } from 'semantic-ui-react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
 // import ReactCardFlip from 'react-card-flip';
