@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Form, Button, Grid } from 'semantic-ui-react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
 // import ReactCardFlip from 'react-card-flip';
@@ -23,9 +23,24 @@ import CardBack from './CardBack'
             this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
     }
 
+    handleChange = (event) => {
+        this.setState({
+            comment: event.target.value
+          });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        debugger
+        console.log(this.state)
+        console.log(event.target.value)
+        debugger
+        // this.setState({...this.state, ...this.state.comments.push(event.target.value)});
+      }
+
     render() {
         console.log("MaterialCard state:", this.state); 
-        console.log("MaterialCard props:", this.props);
+        // console.log("MaterialCard props:", this.props);
         // debugger
         
         const cardState = this.state.isFlipped
@@ -34,12 +49,24 @@ import CardBack from './CardBack'
             cardFace = <CardBack material={this.props.material} comments={this.state}/>
         } else {
             cardFace = <CardFront material={this.props.material}/>
+            
         }
 
         return(
+            <React.Fragment>
             <Card onClick={this.handleClick}>
                 {cardFace}
+                
             </Card>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                    <label>Care to Comment?</label>
+                    <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
+                </Form.Field>
+                     <Button type="submit" value="Submit">Submit</Button>
+            </Form>
+            </React.Fragment>
+        
         )
     }
     

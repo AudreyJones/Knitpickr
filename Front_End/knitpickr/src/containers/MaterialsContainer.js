@@ -39,8 +39,7 @@ class MaterialsContainer extends Component {
                   <div className="ui five stackable cards">
                      <Transition.Group animation={this.state.animation} duration={this.state.duration} >
                         {visible && this.props.materials.map(material => 
-                              
-                              <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />
+                              <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />    
                         )}
                      </Transition.Group>
                   </div>  
