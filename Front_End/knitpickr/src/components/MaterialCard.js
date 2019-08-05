@@ -34,10 +34,13 @@ import CardBack from './CardBack'
         debugger //Before comments array change
         this.setState({...this.state, ...this.state.comments.push(this.state.comment)});
         debugger //After comments array change
+        //Need to reset form input field after state update!!
+        this.setState({comment:""})
+        debugger //After resetting form field
       }
 
     render() {
-        console.log("MaterialCard state:", this.state); 
+        // console.log("MaterialCard state:", this.state); 
         // console.log("MaterialCard props:", this.props);
         // debugger
         

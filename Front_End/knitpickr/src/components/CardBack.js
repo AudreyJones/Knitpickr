@@ -17,7 +17,12 @@ function CardBack(props) {
                         Quantity: {props.material.quantity}
                     <br />
                         <Card.Description>
-                            Comments: {comments}
+                            Comments: 
+                            <ul>
+                                {comments.map(comment => 
+                                <li>{comment}</li>
+                                )}
+                            </ul>
                         </Card.Description>
                 </Card.Content>
                 </Card>
