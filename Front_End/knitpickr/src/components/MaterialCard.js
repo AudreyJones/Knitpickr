@@ -16,7 +16,8 @@ import ReactCardFlip from 'react-card-flip';
                 isClicked: false,
                isFlipped: false,
                comment: "",
-               comments:[]
+               comments:[],
+               liked: 0
             }
         // this.handleClick = this.handleClick.bind(this);
     }
@@ -25,6 +26,12 @@ import ReactCardFlip from 'react-card-flip';
             event.preventDefault();
             console.log("Current state: ", this.state)
             this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
+    }
+
+    handleLike = (event) => {
+        event.preventDefault()
+        this.setState({liked: this.state.liked + 1});
+        // debugger
     }
 
     handleVisibility = () => this.setState(prevState => ({ visible: !prevState.visible }))
@@ -55,7 +62,7 @@ import ReactCardFlip from 'react-card-flip';
         let cardFace;
         
         if (cardState === true) {
-            cardFace = <CardBack material={this.props.material} comments={this.state}/>
+            cardFace = <CardBack material={this.props.material} comments={this.state} liked={this.state.liked} handleLike={this.handleLike}/>
         } else {
             cardFace = <CardFront material={this.props.material}/>
         }
@@ -64,8 +71,9 @@ import ReactCardFlip from 'react-card-flip';
             <React.Fragment>
 
             <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
-            <Card onClick={this.handleClick}>
+            <Card>
                 {cardFace}
+                <button onClick={this.handleClick}>Flip!</button>
             </Card>
             </Transition.Group>
 

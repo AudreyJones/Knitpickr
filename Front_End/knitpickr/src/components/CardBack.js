@@ -2,12 +2,13 @@ import React from 'react';
 import { Card } from 'semantic-ui-react'
 
 
-// Functional component, because it does not need a state, and is only concerned with displaying of information
+
 function CardBack(props) {
-    console.log("CardBack props", props)
-    const comments = props.comments.comments.map( comment => {
-        return comment
-    })
+            // console.log("CardBack state", this.state)
+            console.log("CardBack props", props)
+            const comments = props.comments.comments.map( comment => {
+                return comment
+            })
         return(
             <div>
                 <Card>
@@ -23,11 +24,14 @@ function CardBack(props) {
                                 <li>{comment}</li>
                                 )}
                             </ul>
+                            <button onClick={props.handleLike}>Like</button>
+                            <br />
+                                {props.liked}
                         </Card.Description>
                 </Card.Content>
                 </Card>
             </div>
-        )        
+        )      
 }
 
 export default CardBack;

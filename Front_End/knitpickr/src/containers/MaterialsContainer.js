@@ -35,7 +35,6 @@ class MaterialsContainer extends Component {
             <br />
                <Card.Group itemsPerRow={4}>  
                   <div className="ui five stackable cards">
-                     
                         {this.props.materials.map(material => 
                               <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />    
                         )}
