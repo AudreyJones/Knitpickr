@@ -1,6 +1,6 @@
 export function fetchProjects() {
 //  YOUR PROJECTS ACTION CREATOR
-   console.log("Hitting fetchProjects ACTION CREATOR")
+//    console.log("Hitting fetchProjects ACTION CREATOR")
 //    debugger
    return (dispatch) => {
        // First action sent immediately after promise is returned

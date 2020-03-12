@@ -16,7 +16,7 @@ class MaterialForm extends Component {
     }
     handleSubmit = (event) => {
         // debugger
-        console.log(this.state)
+        // console.log(this.state)
         event.preventDefault() 
         this.state.quantity = parseInt(this.state.quantity)
         // debugger
@@ -80,7 +80,7 @@ class MaterialForm extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("mapStateToProps of MaterialForm: ", state)
+    // console.log("mapStateToProps of MaterialForm: ", state)
     return{
         all_Users: state.users
     }

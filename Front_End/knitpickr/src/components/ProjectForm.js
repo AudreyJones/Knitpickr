@@ -56,7 +56,7 @@ class ProjectForm extends Component {
     
 
     render() {
-        console.log('Project Form Props:', this.props)
+        // console.log('Project Form Props:', this.props)
 
         const allMaterials = this.props.all_Materials.materials
         
@@ -92,7 +92,7 @@ class ProjectForm extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("mapStateToProps of ProjectForm: ", state)
+    // console.log("mapStateToProps of ProjectForm: ", state)
     return{
         all_Materials: state.materials, all_projects: state.projects
     }

@@ -1,33 +1,106 @@
-import React from 'react';
-import { Card, Image } from 'semantic-ui-react'
+import React, {Component} from 'react';
+import { Card, Form, Button, Transition } from 'semantic-ui-react'
+import CardFront from './CardFront'
+import CardBack from './CardBack'
+import ReactCardFlip from 'react-card-flip';
 
 
- const MaterialCard = (props) => {
-        // console.log("MaterialCard is:", props)
+// Class component, because it needs to hold state of whether or not this particular card has been Flipped or not!
+ class MaterialCard extends Component {
+    constructor() {
+        super()
+            this.state = {
+                animation: 'horizontal flip',
+                duration: 50000, 
+                visible: true,
+                isClicked: false,
+               isFlipped: false,
+               comment: "",
+               comments:[],
+               liked: 0
+            }
+        // this.handleClick = this.handleClick.bind(this);
+    }
 
-    const yarnPic = "https://marymaxim.cdn.speedyrails.net/media/catalog/product/cache/afad95d7734d2fa6d0a8ba78597182b7/5/5/554-rose-wrapped_1.jpg"
-    const hookPic = "https://yarn-cdn-weblinc.netdna-ssl.com/product_images/knitters-pride-bamboo-crochet-hook-set/579f830369702d366f0099d7/zoom.jpg?c=1471556621"
+    handleClick = (event) => {
+            event.preventDefault();
+            console.log("Current state: ", this.state)
+            this.setState(prevState => ({isFlipped: !prevState.isFlipped }));
+    }
+
+    handleLike = (event) => {
+        event.preventDefault()
+        this.setState({liked: this.state.liked + 1});
+        // debugger
+    }
+
+    handleVisibility = () => this.setState(prevState => ({ visible: !prevState.visible }))
+
+    handleChange = (event) => {
+        this.setState({
+            comment: event.target.value
+          });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        // debugger //Before comments array change
+        this.setState({...this.state, ...this.state.comments.push(this.state.comment)});
+        // debugger //After comments array change
+        //Need to reset form input field after state update!!
+        this.setState({comment:""})
+        // debugger //After resetting form field
+      }
+
+    render() {
+        // console.log("MaterialCard state:", this.state); 
+        // console.log("MaterialCard props:", this.props);
+        // debugger
+        // const { animation, duration, visible } = this.state
+        
+        const cardState = this.state.isFlipped
+        let cardFace;
+        
+        if (cardState === true) {
+            cardFace = <CardBack material={this.props.material} comments={this.state} liked={this.state.liked} handleLike={this.handleLike}/>
+        } else {
+            cardFace = <CardFront material={this.props.material}/>
+        }
 
         return(
-             <Card>
-                 {props.material.name === 'yarn' && <Image src={yarnPic} />}
-                {props.material.name === 'hook' && <Image src={hookPic} />}
-                 
-                 
-                
-                    <Card.Content >
-                        <Card.Header >
-                             {props.material.color} {props.material.name}
-                            </Card.Header>
-                        </Card.Content>
+            <React.Fragment>
 
-                    <Card.Content extra>
-                        {props.material.brand}
-                        <br />
-                        {props.material.quantity} units
-                    </Card.Content>
-                    </Card>
+            <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
+            <Card>
+                {cardFace}
+                <button onClick={this.handleClick}>Flip!</button>
+            </Card>
+            </Transition.Group>
+
+            {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+            <CardFront key="front">
+            This is the front of the card.
+            <button onClick={this.handleClick}>Click to flip</button>
+            </CardFront>
+    
+            <CardBack key="back">
+            This is the back of the card.
+            <button onClick={this.handleClick}>Click to flip</button>
+            </CardBack>
+            </ReactCardFlip> */}
+            
+
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                    <label>Care to Comment?</label>
+                    <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
+                </Form.Field>
+                     <Button type="submit" value="Submit">Submit</Button>
+            </Form>
+            </React.Fragment>
+        
         )
+    }
     
 }
 

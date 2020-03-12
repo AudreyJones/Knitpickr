@@ -18,7 +18,7 @@ class App extends Component {
     
 
   render() {
-    console.log("App.js state:", this)
+    // console.log("App.js state:", this)
     // debugger
     return (
       <Router>
