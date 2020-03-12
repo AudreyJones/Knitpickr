@@ -24,10 +24,10 @@ class MaterialsContainer extends Component {
       this.props.fetchMaterials()
    }
 
-   // handleChange = (e, { name, value }) => this.setState({ [name]: value })
-
-   render() { //   console.log("Loaded MaterialsContainer props:", this.props)
-      return (
+     render() {
+      //   console.log("Loaded MaterialsContainer props:", this.props)
+      //   debugger
+        return (
            <Container>
             <Divider/>
                <MaterialForm />
@@ -47,6 +47,7 @@ class MaterialsContainer extends Component {
 }
 
 const mapStateToProps = state => {
+   // debugger;
    // console.log("mapStateToProps of MaterialsContainer: ", state)
    return {
            materials: state.materials.materials
