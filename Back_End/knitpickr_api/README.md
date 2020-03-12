@@ -1,5 +1,11 @@
 # README
 
+## To get knitpickr up-and-running on your local machine:
+
+Clone down the repo from: 
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

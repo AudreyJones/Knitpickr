@@ -14,11 +14,12 @@ class App extends Component {
       fetch("http://localhost:3001/projects")
           .then(res => res.json())
           .then(projects => this.setState({projects}))
+          
     }
     
 
   render() {
-    // console.log("App.js state:", this)
+    console.log("App.js state:", this)
     // debugger
     return (
       <Router>
