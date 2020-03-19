@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 
 
@@ -10,10 +10,9 @@ function CardBack(props) {
                 return comment
             })
         return(
-            <div>
-                <Card>
+            <Card>
                     <Card.Content>
-                        Made by: {props.material.brand}
+                        Manufacturer: {props.material.brand}
                     <br />
                         Quantity: {props.material.quantity}
                     <br />
@@ -24,13 +23,11 @@ function CardBack(props) {
                                 <li>{comment}</li>
                                 )}
                             </ul>
-                            <button onClick={props.handleLike}>Like</button>
-                            <br />
+                            <Button onClick={props.handleLike}>Like</Button>
                                 {props.liked}
                         </Card.Description>
                 </Card.Content>
-                </Card>
-            </div>
+            </Card>
         )      
 }
 

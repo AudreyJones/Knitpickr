@@ -62,9 +62,11 @@ import CardBack from './CardBack'
         let cardFace;
         
         if (cardState === true) {
-            cardFace = <CardBack material={this.props.material} comments={this.state} liked={this.state.liked} handleLike={this.handleLike}/>
+            cardFace = 
+                <CardBack material={this.props.material} comments={this.state} liked={this.state.liked} handleLike={this.handleLike}/>
         } else {
-            cardFace = <CardFront material={this.props.material}/>
+            cardFace = 
+                <CardFront material={this.props.material}/>
         }
 
         return(
@@ -73,13 +75,15 @@ import CardBack from './CardBack'
             <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
                 <Card>
                     {cardFace}
-                    <button onClick={this.handleClick}>Flip!</button>
+                <Card.Content extra>
+                    <Button onClick={this.handleClick} fluid>Flip!</Button>
+                </Card.Content>
                 </Card>
             </Transition.Group>
             
             <Form onSubmit={this.handleSubmit}>
                 <Form.Field>
-                    <label>Care to Comment?</label>
+                    <label>Comments:</label>
                     <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
                 </Form.Field>
                      <Button type="submit" value="Submit">Submit</Button>

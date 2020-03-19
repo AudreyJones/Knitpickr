@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 
 
 
@@ -14,17 +14,17 @@ function CardFront(props) {
         
        
         return(
-            <div>
                 <Card>
-                    <Card.Content>
                         {props.material.name === 'yarn' && <Image src={yarnPic} />}
-                        {props.material.name === 'hook' && <Image src={hookPic} />}
-
-                        {props.material.color} {props.material.name}
-                        
+                        {props.material.name === 'hook' && <Image src={hookPic} fluid/>}
+                    <Card.Content>
+                        <Card.Header>
+                            {props.material.color} {props.material.name}
+                        </Card.Header>
+                        <Card.Meta>{props.material.brand}</Card.Meta>
+                        <Button fluid>Flip!</Button>
                     </Card.Content>
-                </Card>
-            </div>
+                </Card> 
         )
 }
 export default CardFront;

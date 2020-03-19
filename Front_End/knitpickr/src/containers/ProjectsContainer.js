@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Container, Divider, Card } from 'semantic-ui-react'; //Style Components
+import { Container, Segment, Grid, Card } from 'semantic-ui-react'; //Style Components
 
 // importing our Action creators and { connect } to mapState and Dispatch to Props!
 import {fetchProjects, addProject} from '../actions/projects';
@@ -21,19 +21,25 @@ class ProjectsContainer extends Component {
         console.log("Loaded ProjectsContainer:", this.props)
         return (
            <Container>  
-           <Divider />
-            <ProjectForm />
-            <Divider />
+            <Segment>
+               <ProjectForm />
+            </Segment>
+
+            <br />
           
-          <br />
-          
+            <Grid columns = 'equal'>
+               <Grid.Column>
             <Card.Group itemsPerRow={4}>       
                <div className="ui five stackable cards"></div>         
                   {this.props.projects.map(project => 
+                     <Segment>
                      <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>
                         <ProjectCard key={project.id}  project={project} /></Link> 
+                     </Segment>
                   )}
             </Card.Group> 
+            </Grid.Column>
+            </Grid>
            </Container>
         )
      }
