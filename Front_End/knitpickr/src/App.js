@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { Container, Segment, Header } from 'semantic-ui-react';
 
 
 // importing our various Containers and Presentational components...

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { Card, Form, Button, Transition } from 'semantic-ui-react'
+import { Card, Form, Button, Transition, Segment } from 'semantic-ui-react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
-import ReactCardFlip from 'react-card-flip';
+// import ReactCardFlip from 'react-card-flip';
 
 
 // Class component, because it needs to hold state of whether or not this particular card has been Flipped or not!
@@ -14,10 +14,10 @@ import ReactCardFlip from 'react-card-flip';
                 duration: 50000, 
                 visible: true,
                 isClicked: false,
-               isFlipped: false,
-               comment: "",
-               comments:[],
-               liked: 0
+                isFlipped: false,
+                comment: "",
+                comments:[],
+                liked: 0
             }
         // this.handleClick = this.handleClick.bind(this);
     }
@@ -71,11 +71,20 @@ import ReactCardFlip from 'react-card-flip';
             <React.Fragment>
 
             <Transition.Group visible={this.handleVisibility} animation={this.state.animation} duration={this.state.duration} >
-            <Card>
-                {cardFace}
-                <button onClick={this.handleClick}>Flip!</button>
-            </Card>
+                <Card>
+                    {cardFace}
+                    <button onClick={this.handleClick}>Flip!</button>
+                </Card>
             </Transition.Group>
+            
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Field>
+                    <label>Care to Comment?</label>
+                    <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
+                </Form.Field>
+                     <Button type="submit" value="Submit">Submit</Button>
+            </Form>
+            
 
             {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
             <CardFront key="front">
@@ -88,15 +97,7 @@ import ReactCardFlip from 'react-card-flip';
             <button onClick={this.handleClick}>Click to flip</button>
             </CardBack>
             </ReactCardFlip> */}
-            
 
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Field>
-                    <label>Care to Comment?</label>
-                    <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
-                </Form.Field>
-                     <Button type="submit" value="Submit">Submit</Button>
-            </Form>
             </React.Fragment>
         
         )
