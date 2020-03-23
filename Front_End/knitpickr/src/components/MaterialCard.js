@@ -81,13 +81,13 @@ import CardBack from './CardBack'
                 </Card>
             </Transition.Group>
             
-            <Form onSubmit={this.handleSubmit}>
+            {/* <Form onSubmit={this.handleSubmit}>
                 <Form.Field>
                     <label>Comments:</label>
                     <input placeholder="Enter Comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
                 </Form.Field>
                      <Button type="submit" value="Submit">Submit</Button>
-            </Form>
+            </Form> */}
             
 
             {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">

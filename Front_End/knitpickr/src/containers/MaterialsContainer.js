@@ -5,7 +5,7 @@ import MaterialCard from '../components/MaterialCard';
 import MaterialForm from '../components/MaterialForm';
 
 // import { Link } from 'react-router-dom'
-import { Container, Card, Grid, Segment } from 'semantic-ui-react';
+import { Container, Card, Grid, Segment, Header } from 'semantic-ui-react';
 
 
 
@@ -18,7 +18,7 @@ class MaterialsContainer extends Component {
          isClicked: false
       }
       
-  }
+   }
    
    componentDidMount() {
       this.props.fetchMaterials()
@@ -32,20 +32,14 @@ class MaterialsContainer extends Component {
            <Segment>
                <MaterialForm />
                <br />
-               <Container centered>
-                     <Card.Group>  
-                        
-                              {this.props.materials.map(material => 
-                                 <Segment>
-                                    <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />
-                                    <br />
-                                 </Segment>    
-                              )}
-                         
-                     </Card.Group> 
-                     </Container>
-
-               </Segment>
+               <Grid container columns={3} stackable>
+                  {this.props.materials.map(material => 
+                     <Grid.Column>
+                        <MaterialCard key={material.id} to={`/materials/${material.id}`} material={material} />
+                     </Grid.Column>   
+               )}
+               </Grid>
+            </Segment>
            </div>
         )
      }

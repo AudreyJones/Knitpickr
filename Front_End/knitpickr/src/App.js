@@ -29,7 +29,6 @@ export default class App extends Component {
             <Link to="/projects"><Button>Project Index</Button></Link>
             <Link to="/materials"><Button>Materials Index</Button></Link>
             <Segment>
-              <Image fluid>Filler</Image>
               <Header as='h1' color='teal'>Knitpickr</Header>
               <Header.Subheader>Keep track of all of your yarn craft projects and notions</Header.Subheader>
             </Segment>

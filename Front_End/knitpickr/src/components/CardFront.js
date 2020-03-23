@@ -15,8 +15,8 @@ function CardFront(props) {
        
         return(
                 <Card>
-                        {props.material.name === 'yarn' && <Image src={yarnPic} />}
-                        {props.material.name === 'hook' && <Image src={hookPic} fluid/>}
+                        {props.material.name === 'yarn' && <Image src={yarnPic} size='small' wrapped/>}
+                        {props.material.name === 'hook' && <Image src={hookPic} size='small' wrapped/>}
                     <Card.Content>
                         <Card.Header>
                             {props.material.color} {props.material.name}
