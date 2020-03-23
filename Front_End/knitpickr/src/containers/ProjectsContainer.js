@@ -20,27 +20,22 @@ class ProjectsContainer extends Component {
      render() {
         console.log("Loaded ProjectsContainer:", this.props)
         return (
-           <Container>  
+           <div>  
             <Segment>
                <ProjectForm />
             </Segment>
-
-            <br />
-          
-            <Grid columns = 'equal'>
-               <Grid.Column>
-            <Card.Group itemsPerRow={4}>       
-               <div className="ui five stackable cards"></div>         
-                  {this.props.projects.map(project => 
-                     <Segment>
-                     <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>
-                        <ProjectCard key={project.id}  project={project} /></Link> 
-                     </Segment>
-                  )}
-            </Card.Group> 
-            </Grid.Column>
-            </Grid>
-           </Container>
+           <Segment>
+               <Grid container columns={3} stackable>
+               {this.props.projects.map(project =>  
+                     <Grid.Column>
+                        <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>
+                           <ProjectCard key={project.id}  project={project} />
+                        </Link>
+                     </Grid.Column>   
+               )}
+               </Grid>
+            </Segment>
+           </div>
         )
      }
 }
