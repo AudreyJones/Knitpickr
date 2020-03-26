@@ -24,17 +24,17 @@ class ProjectsContainer extends Component {
             <Segment>
                <ProjectForm />
             </Segment>
-           <Segment>
+            <Segment>
                <Grid container columns={3} stackable>
-               {this.props.projects.map(project =>  
+                  {this.props.projects.map(project =>  
                      <Grid.Column>
                         <Link to={{pathname:`/projects/${project.id}`, state:{project:project}}}>
                            <ProjectCard key={project.id}  project={project} />
                         </Link>
                      </Grid.Column>   
-               )}
+                  )}
                </Grid>
-            </Segment>
+               </Segment>
            </div>
         )
      }

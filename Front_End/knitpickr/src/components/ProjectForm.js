@@ -71,15 +71,17 @@ class ProjectForm extends Component {
                     {/* Iterate over all materials and make them available for selection! */}
                     <Form.Field>
                         Select your materials:
-                    <Grid columns={4} divided>
-                        <Grid.Column >
+                        <Grid container columns={3} stackable>
+                        
                     {allMaterials.map(material =>
-                        <div class="ui checkbox">
+                        <Grid.Column >
+                        {/* <div class="ui checkbox"> */}
                         <Checkbox label={`${material.color} ${material.name}`} />
-                            <input id="materialName" name={`${material.color} ${material.name}`} type="checkbox" value={material.id} onChange={this.handleCheckBoxChange}/>
-                        </div>
-                    )}
+                            {/* <input id="materialName" name={`${material.color} ${material.name}`} type="checkbox" value={material.id} onChange={this.handleCheckBoxChange}/> */}
+                        {/* </div> */}
                         </Grid.Column>
+                    )}
+                        
                     </Grid>
                     </Form.Field>
                     <Button type="submit">Add Project</Button>
